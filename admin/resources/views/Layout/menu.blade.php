@@ -8,7 +8,12 @@
                         <li class="nav-item mt-3">ADMIN</li>
                     </ul>
                     <ul class="navbar-nav my-lg-0">
-                        <li class="nav-item"><a href="{{ url('/logout') }}" class="btn btn-sm btn-danger">Logout</a></li>
+
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <input class="btn btn-sm btn-danger" type="submit" value="Logout">
+                        </form>
+                        {{-- <li class="nav-item"><a href="" class="btn btn-sm btn-danger">Logout</a></li> --}}
                     </ul>
                 </div>
             </nav>

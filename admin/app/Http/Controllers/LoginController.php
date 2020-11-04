@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AdminModel;
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     function LoginIndex(){
@@ -11,8 +13,10 @@ class LoginController extends Controller
     }
 
     function onLogout(Request $request){
+        Auth::logout();
         $request->session()->flush();
         return redirect('/login');
+
     }
 
 

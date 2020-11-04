@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', 'HomeController@HomeIndex');
 Route::get('/visitor', 'VisitorController@VisitorIndex');
 
@@ -84,7 +84,7 @@ Route::get('/getContactData', 'contactController@getContactData');
 
 Route::get('/contact', 'contactController@contactIndex');
 Route::get('/getContactData', 'contactController@getContactData');
- Route::post('/deleteContactData', 'contactController@contactDelete');
+Route::post('/deleteContactData', 'contactController@contactDelete');
 
 
 
@@ -92,26 +92,11 @@ Route::get('/getContactData', 'contactController@getContactData');
 
 
 
-// Admin Panel Login Management
-Route::get('/login', 'LoginController@LoginIndex');
-Route::post('/onLogin', 'LoginController@onLogin');
-Route::get('/logout', 'LoginController@onLogout');
-
-
-
-// Admin Photo Gallery
-Route::get('/Photo', 'PhotoController@PhotoIndex');
-Route::post('/imageup', 'PhotoController@uploadImage');
-Route::get('/PhotoJSON', 'PhotoController@PhotoJSON');
+// // Admin Panel Login Management
+// Route::get('/login', 'LoginController@LoginIndex');
+// Route::post('/onLogin', 'LoginController@onLogin');
+// Route::get('/logout', 'LoginController@onLogout');
 
 
 
 
-
-// Admin Photo Gallery
-Route::get('/admin', 'AdminController@AdminIndex');
-Route::post('/addAdmin', 'AdminController@AdminAdd');
-Route::get('/getAdmindata', 'AdminController@AdminData');
-Route::post('/Admindelete', 'AdminController@AdminDelete');
-Route::post('/Admindetails', 'AdminController@AdminDetailEdit');
-Route::post('/Adminupdate', 'AdminController@AdminUpdate');

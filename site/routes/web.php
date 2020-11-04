@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SiteController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Client Route
-Route::get('/', 'HomeController@HomeIndex');
+
+Route::get('/', 'HomeController@HomeIndex')->name('home');
 Route::post('/booking', 'HomeController@bookingSend')->name('bookiongSubmit');
 Route::post('/newsLatterSend', 'HomeController@newsLatterSend')->name('newsLatterSend');
 Route::get('/contact', 'ContactController@contactIndex');
