@@ -12,6 +12,6 @@ class VisitorController extends Controller
     {
 
         $visitorData = json_decode(VisitorTable::orderBy('id','desc')->take(1000)->get(), true);
-        return view("Visitor", ['visitorData' => $visitorData]);
+        return view("admin.Visitor", ['visitorData' => $visitorData]);
     }
 }

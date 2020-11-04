@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class NewslatterController extends Controller
 {
     function newslatterIndex() {
-        return view('newslatter');
+        return view('admin.newslatter');
     }
 
     function getNewslatterData() {

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class bookingController extends Controller
 {
     function bookingIndex() {
-        return view('booking');
+        return view('admin.booking');
     }
 
     function getBookingData() {

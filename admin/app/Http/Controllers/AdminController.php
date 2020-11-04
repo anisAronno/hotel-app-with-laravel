@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
    public function AdminIndex(){
 
-    return view('Admin');
+    return view('admin.Admin');
    }
 
 

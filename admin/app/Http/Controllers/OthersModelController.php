@@ -10,7 +10,7 @@ class OthersModelController extends Controller
         public function otherIndex(){
 
             $results = json_decode(OthersModel::orderBy('id', 'desc')->get()->first());
-            return view('Others', [
+            return view('admin.Others', [
                 'results'=>$results
             ]);
         }

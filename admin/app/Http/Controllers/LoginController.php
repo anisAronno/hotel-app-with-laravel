@@ -7,12 +7,12 @@ use App\AdminModel;
 class LoginController extends Controller
 {
     function LoginIndex(){
-    	return view('login');
+    	return view('admin.login');
     }
 
     function onLogout(Request $request){
         $request->session()->flush();
-        return redirect('/login');
+        return redirect()->route('login');
     }
 
 

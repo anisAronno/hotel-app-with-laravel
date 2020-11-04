@@ -16,7 +16,12 @@ Route::group(['middleware' => 'loginCheck'], function () {
 
 
 
-Route::get('/', 'HomeController@HomeIndex');
+
+
+
+
+
+Route::get('/dashboard', 'HomeController@HomeIndex');
 Route::get('/visitor', 'VisitorController@VisitorIndex');
 
 
@@ -97,10 +102,10 @@ Route::get('/getContactData', 'contactController@getContactData');
 
 
 
-// Admin Photo Gallery
-Route::get('/Photo', 'PhotoController@PhotoIndex');
-Route::post('/imageup', 'PhotoController@uploadImage');
-Route::get('/PhotoJSON', 'PhotoController@PhotoJSON');
+// // Admin Photo Gallery
+// Route::get('/Photo', 'PhotoController@PhotoIndex');
+// Route::post('/imageup', 'PhotoController@uploadImage');
+// Route::get('/PhotoJSON', 'PhotoController@PhotoJSON');
 
 
 
@@ -116,7 +121,27 @@ Route::post('/Adminupdate', 'AdminController@AdminUpdate');
 });
 
 
+
 // Admin Panel Login Management
-Route::get('/login', 'LoginController@LoginIndex');
+Route::get('/login', 'LoginController@LoginIndex')->name('login');
 Route::post('/onLogin', 'LoginController@onLogin');
 Route::get('/logout', 'LoginController@onLogout');
+
+
+
+
+
+
+// Client Route
+Route::get('/', 'client\HomeController@HomeIndex');
+Route::post('/bookingSend', 'client\HomeController@bookingSend')->name('bookiongSubmit');
+Route::post('/newsLatterSend', 'client\HomeController@newsLatterSend')->name('newsLatterSend');
+Route::get('/contactPage', 'client\ContactController@contactIndex');
+Route::post('/contactSend', 'client\ContactController@contactSend')->name('contactSend');
+Route::get('/about', 'client\AboutController@aboutIndex');
+Route::get('/rooms', 'client\roomsController@roomIndex')->name('rooms');
+Route::get('/resturant', 'client\resturantController@resturantIndex');
+Route::get('/blog', 'client\blogController@blogIndex');
+Route::get('/single-blog', 'client\singleBlogeController@singleBlogIndex');
+Route::get('/single-facility-{facilityId}', 'client\singleFacilityController@singleFacilityIndex')->name('singleFacility');
+Route::get('/single-room-{roomId}', 'client\singleRoomController@singleRoomIndex')->name('singleRoom');

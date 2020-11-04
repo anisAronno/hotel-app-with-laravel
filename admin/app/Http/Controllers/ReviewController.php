@@ -9,7 +9,7 @@ class ReviewController extends Controller
 {
     public function ReviewIndex()
     {
-        return view("Reviews");
+        return view("admin.Reviews");
     }
 
     public function ReviewData()

@@ -14,6 +14,7 @@ class HomeController extends Controller
     function HomeIndex(){
 
 
+
         $TotalReview=ReviewModel::count();
 
         $TotalVisitor=VisitorTable::count();
@@ -21,7 +22,7 @@ class HomeController extends Controller
         $TotalBooking=bookingModel::count();
 
 
-         return view('Home',[
+         return view('admin.Home',[
             'TotalReview'=>$TotalReview,
             'TotalVisitor'=>$TotalVisitor,
             'TotalBooking'=>$TotalBooking

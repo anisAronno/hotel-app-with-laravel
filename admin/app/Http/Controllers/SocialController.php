@@ -7,26 +7,26 @@ use App\SocialModel;
 class SocialController extends Controller
 {
     public function SocialIndex(){
-        
+
         $results = json_decode(SocialModel::orderBy('id', 'desc')->get()->first());
 
 
-        return view('Social', [
+        return view('admin.Social', [
             'results'=>$results
-        ]);    
-    } 
-        
-        
+        ]);
+    }
+
+
     public function addFacebook(Request $request)
     {
         $facebook = $request->input("facebook");
 
         $valuecheck = (SocialModel::orderBy('id', 'desc')->get());
 
-       
+
 
         if( count($valuecheck)>0){
-            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['facebook' => $facebook]); 
+            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['facebook' => $facebook]);
         }
         else{
             $result = SocialModel::insert(['facebook' => $facebook]);
@@ -44,10 +44,10 @@ class SocialController extends Controller
 
         $valuecheck = (SocialModel::orderBy('id', 'desc')->get());
 
-        
+
 
         if( count($valuecheck)>0){
-            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['twitter' => $twitter]); 
+            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['twitter' => $twitter]);
         }
         else{
             $result = SocialModel::insert(['twitter' => $twitter]);
@@ -65,10 +65,10 @@ class SocialController extends Controller
 
         $valuecheck = (SocialModel::orderBy('id', 'desc')->get());
 
-        
+
 
         if( count($valuecheck)>0){
-            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['youtube' => $youtube]); 
+            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['youtube' => $youtube]);
         }
         else{
             $result = SocialModel::insert(['youtube' => $youtube]);
@@ -88,10 +88,10 @@ class SocialController extends Controller
 
         $valuecheck = (SocialModel::orderBy('id', 'desc')->get());
 
-        
+
 
         if( count($valuecheck)>0){
-            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['instragram' => $instragram]); 
+            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['instragram' => $instragram]);
         }
         else{
             $result = SocialModel::insert(['instragram' => $instragram]);
@@ -109,10 +109,10 @@ class SocialController extends Controller
 
         $valuecheck = (SocialModel::orderBy('id', 'desc')->get());
 
-        
+
 
         if( count($valuecheck)>0){
-            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['google' => $google]); 
+            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['google' => $google]);
         }
         else{
             $result = SocialModel::insert(['google' => $google]);
@@ -131,10 +131,10 @@ class SocialController extends Controller
 
         $valuecheck = (SocialModel::orderBy('id', 'desc')->get());
 
-        
+
 
         if( count($valuecheck)>0){
-            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['linkin' => $linkin]); 
+            $result = SocialModel::where('id', '=',  $valuecheck['0']->id)->update(['linkin' => $linkin]);
         }
         else{
             $result = SocialModel::insert(['linkin' => $linkin]);

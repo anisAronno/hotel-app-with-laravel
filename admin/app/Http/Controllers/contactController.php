@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class contactController extends Controller
 {
     function contactIndex() {
-        return view('contact');
+        return view('admin.contact');
     }
 
     function getContactData() {

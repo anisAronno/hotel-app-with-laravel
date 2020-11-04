@@ -10,7 +10,7 @@ class SliderController extends Controller
 
     public function SliderIndex()
     {
-        return view("Slider");
+        return view("admin.Slider");
     }
 
     public function SliderData()
