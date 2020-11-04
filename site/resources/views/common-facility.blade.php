@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+@section('broadcramb','Common Facility')
 @section('content')
        <!-- Hero Section Begin -->
        @include('component.hero')

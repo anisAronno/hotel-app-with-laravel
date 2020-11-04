@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ServicesTable extends Migration
+class BookingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class ServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('booking', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('service_name');
-            $table->string('service_des');
-            $table->string('service_img');
+            $table->string('arrival_date');
+            $table->string('departure_date');
+            $table->string('customer_mobile');
+            $table->string('adult_person');
+            $table->string('children_person');
+
         });
     }
 

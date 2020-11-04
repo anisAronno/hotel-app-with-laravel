@@ -22,7 +22,7 @@
                         <li> <a href="{{ url('/admin') }}"><span> <i class="fas fa-user"></i> </span><span class="hide-menu">Admin</span></a></li>
                         <li> <a href="{{ url('/visitor') }}"><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Visitor</span></a></li>
                         <li> <a href="{{ url('/booking') }}"><span> <i class="fas fa-mail-bulk"></i></span><span class="hide-menu">Booking</span></a></li>
-                        <li> <a href="{{ url('/newslatter') }}"><span> <i class="fas fa-mail-bulk"></i></span><span class="hide-menu">Newslatter</span></a></li>
+                        <li> <a href="{{ url('/newslatter') }}"><span> <i class="fas fa-bell"></i></span><span class="hide-menu">Newslatter</span></a></li>
                         <li> <a href="{{ url('/contact') }}"><span> <i class="fas fa-envelope"></i> </span><span class="hide-menu">Contact</span></a></li>
                         <li> <a href="{{ url('/slider') }}"><span> <i class="fas fa-image"></i> </span><span class="hide-menu">Slider</span></a></li>
                         <li> <a href="{{ url('/others') }}"><span> <i class="fas fa-cog"></i> </span><span class="hide-menu">Generale Settings</span></a></li>

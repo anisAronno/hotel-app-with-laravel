@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'loginCheck'], function () {
+
+
 
 Route::get('/', 'HomeController@HomeIndex');
 Route::get('/visitor', 'VisitorController@VisitorIndex');
@@ -92,11 +95,6 @@ Route::get('/getContactData', 'contactController@getContactData');
 
 
 
-// Admin Panel Login Management
-Route::get('/login', 'LoginController@LoginIndex');
-Route::post('/onLogin', 'LoginController@onLogin');
-Route::get('/logout', 'LoginController@onLogout');
-
 
 
 // Admin Photo Gallery
@@ -115,3 +113,10 @@ Route::get('/getAdmindata', 'AdminController@AdminData');
 Route::post('/Admindelete', 'AdminController@AdminDelete');
 Route::post('/Admindetails', 'AdminController@AdminDetailEdit');
 Route::post('/Adminupdate', 'AdminController@AdminUpdate');
+});
+
+
+// Admin Panel Login Management
+Route::get('/login', 'LoginController@LoginIndex');
+Route::post('/onLogin', 'LoginController@onLogin');
+Route::get('/logout', 'LoginController@onLogout');

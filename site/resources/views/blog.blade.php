@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+@section('broadcramb','Blog')
 @section('content')
    
    
