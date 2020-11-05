@@ -24,7 +24,7 @@
 </div>
 
 <div style="height: 450px" class="col-md-6 bg-light">
-<img class="w-75 m-5" src="images/bannerImg.png">
+<img class="w-75 m-5" src="{{asset('/images')}}/OfT7CVJJ8kKRZk145fSVQ54qFgKNGjxCMBHOuT9p.jpeg">
 </div>
 </div>
 </div>

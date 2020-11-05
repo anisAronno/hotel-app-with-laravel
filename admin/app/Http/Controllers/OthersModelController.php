@@ -157,14 +157,17 @@ class OthersModelController extends Controller
         {
 
             $valuecheck = (OthersModel::orderBy('id', 'desc')->get());
-            $photoPath =  $req->file('photo')->store('public');
-            $photoName = (explode('/', $photoPath))[1];
-            $host = $_SERVER['HTTP_HOST'];
-            $location = "http://" . $host . "/storage/" . $photoName;
+
+            $fileName=$req->file('photo')->getClientOriginalName();
+
+            $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
+
+            $imageRealPath=asset('images')."/".$fileName;
+
             if( count($valuecheck)>0){
-            $result = OthersModel::where('id', '=',  $valuecheck['0']->id)->update(['logo' => $location]);
+            $result = OthersModel::where('id', '=',  $valuecheck['0']->id)->update(['logo' => $imageRealPath]);
             } else{
-                $result = OthersModel::insert(['logo' => $location]);
+                $result = OthersModel::insert(['logo' => $imageRealPath]);
             }
             if ($result == true) {
                 return 1;

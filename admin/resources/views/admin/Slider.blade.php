@@ -353,6 +353,7 @@
                         'Content-Type': 'multipart/form-data'
                     }
                 }).then(function(response) {
+                    console.log(response.data);
 
                     $('#SliderAddConfirmBtn').html("Save");
 

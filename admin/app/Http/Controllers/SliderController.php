@@ -50,11 +50,15 @@ class SliderController extends Controller
         $description = $data['0']->description;
         $button = $data['0']->button;
         if ($req->file('photo')) {
-            $photoPath =  $req->file('photo')->store('public');
-            $photoName = (explode('/', $photoPath))[1];
-            $host = $_SERVER['HTTP_HOST'];
-            $location = "http://" . $host . "/storage/" . $photoName;
-            $result = SliderModel::where('id', '=', $id)->update(['title' => $name, 'sub_title' => $description, 'button' => $button, 'image' => $location]);
+            
+            $fileName=$req->file('photo')->getClientOriginalName();
+
+            $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
+
+            $imageRealPath=asset('images')."/".$fileName;
+
+
+            $result = SliderModel::where('id', '=', $id)->update(['title' => $name, 'sub_title' => $description, 'button' => $button, 'image' => $imageRealPath]);
             if ($result == true) {
                 return 1;
             } else {
@@ -86,15 +90,16 @@ class SliderController extends Controller
         $description = $data['0']->description;
         $button = $data['0']->button;
 
-        $photoPath =  $req->file('photo')->store('public');
+        $fileName=$req->file('photo')->getClientOriginalName();
 
-        $photoName = (explode('/', $photoPath))[1];
-        $host = $_SERVER['HTTP_HOST'];
-        $location = "http://" . $host . "/storage/" . $photoName;
+        $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
+
+        $imageRealPath=asset('images')."/".$fileName;
+
         $result = SliderModel::insert([
             'title' => $name,
             'sub_title' => $description,
-            'image' => $location,
+            'image' => $imageRealPath,
             'button' => $button,
         ]);
         if ($result == true) {
