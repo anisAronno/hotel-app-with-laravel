@@ -14,7 +14,7 @@
         <div class="footer-item">
           <img src=" <?php if ($othersData) {echo $othersData->logo;}?>" alt="" class="logo" width="150px"
             height="auto">
-          <div class="social-icon">
+           <div class="social-icon">
             <a href="<?php if ($socialData) {
                 echo $socialData->facebook;
             } ?>"><i class="fab fa-facebook"></i></a>
@@ -32,11 +32,15 @@
         </div>
         <div class="footer-item">
           <h6>ADDRESS</h6>
-          <p class="text-muted"><?php if ($othersData) {echo $othersData->address;}?></p>
+          <p class="text-muted"> <?php if ($othersData): ?>
+            {!! nl2br(e($othersData->address)) !!}
+            <?php endif; ?>
+</p>
         </div>
         <div class="footer-item">
           <h6>PHONE</h6>
           <p class="text-muted"><?php if ($othersData) {echo $othersData->phone;}?></p>
+          <p class="text-muted"><?php if ($othersData) {echo $othersData->phone2;}?></p>
         </div>
         <div class="footer-item">
           <h6>RESERVATIONS</h6>

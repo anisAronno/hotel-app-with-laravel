@@ -57,7 +57,7 @@
                         <tr>
                             <td>
                                 <div class="form-group mb-2">
-                                    <h3>Phone Number:</h3>
+                                    <h3>Primary Phone:</h3>
                                 </div>
                             </td>
                             <td>
@@ -69,6 +69,23 @@
                               </td>
                             <td>
                             <button id="submitPhone" type="submit" class="btn btn-primary mb-2">Update</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group mb-2">
+                                    <h3>Another Phone:</h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="addPhone" class="sr-only">mobile</label>
+                                    <input  id="addPhone2" required type="text" class="form-control "  value="<?php if ($results) {echo $results->phone;}?>">
+
+                                </div>
+                              </td>
+                            <td>
+                            <button id="submitPhone2" type="submit" class="btn btn-primary mb-2">Update</button>
                             </td>
                         </tr>
                         <tr>
@@ -474,6 +491,43 @@ if (phone.length == 0) {
     })
         .then(function (response) {
             $('#submitPhone').html("Update");
+            if (response.status = 200) {
+                if (response.data == 1) {
+                    toastr.success('Updated Success .');
+
+
+                } else {
+                    toastr.error('Updated Failed');
+                }
+            } else {
+                toastr.error('Something Went Wrong');
+            }
+        }).catch(function (error) {
+            toastr.error('Something Went Wrong');
+        });
+    }
+}
+
+// phone 2
+
+
+$('#submitPhone2').click(function () {
+var phone2 = $('#addPhone2').val();
+addPhone2(phone2);
+})
+
+function addPhone2(phone2) {
+if (phone2.length == 0) {
+    toastr.error('phone url is empty!');
+
+}  else {
+    $('#submitPhone2').html(
+        "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+    axios.post('/phone2', {
+        phone2: phone2
+    })
+        .then(function (response) {
+            $('#submitPhone2').html("Update");
             if (response.status = 200) {
                 if (response.data == 1) {
                     toastr.success('Updated Success .');

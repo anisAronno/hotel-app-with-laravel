@@ -29,7 +29,7 @@ Route::get('/visitor', 'VisitorController@VisitorIndex');
 
 
 
-//admin panel Slider management
+//admin panel Home Page  Slider Section
 
 Route::get('/slider', 'SliderController@SliderIndex');
 Route::post('/addslider', 'SliderController@SliderAdd');
@@ -37,6 +37,51 @@ Route::get('/getsliderdata', 'SliderController@SliderData');
 Route::post('/sliderdelete', 'SliderController@SliderDelete');
 Route::post('/sliderdetails', 'SliderController@SliderDetailEdit');
 Route::post('/sliderupdate', 'SliderController@SliderUpdate');
+
+// Home Page About Section  Route
+
+
+Route::get('/homePage', 'HomePageController@homeAboutIndex');
+Route::post('/addHAtitle', 'HomePageController@addTitle');
+Route::post('/addHADescription', 'HomePageController@addDescription');
+Route::post('/addHAimage', 'HomePageController@imageAdd');
+Route::post('/addHAimage2', 'HomePageController@imageAdd2');
+Route::post('/addHAimage3', 'HomePageController@imageAdd3');
+Route::post('/addEXPimage', 'HomePageController@imageEXPAdd');
+
+Route::get('/getFSdata', 'HomePageController@getHomeFeaturedSpecialsData');
+Route::post('/addFSdata', 'HomePageController@homeSFAdd');
+Route::post('/homeFSdelete', 'HomePageController@HomeFSDelete');
+Route::post('/HomeFSEdit', 'HomePageController@HomeFSEdit');
+Route::post('/HomeFSUpdate', 'HomePageController@HomeFSUpdate');
+
+
+Route::get('/getEXPdata', 'HomePageController@getHomeExclusiveSpecialsData');
+Route::post('/homeEXPAdd', 'HomePageController@homeEXPAdd');
+Route::post('/HomeEXFDelete', 'HomePageController@HomeEXFDelete');
+Route::post('/HomeEXPEdit', 'HomePageController@HomeEXPEdit');
+Route::post('/HomeEXPUpdate', 'HomePageController@HomeEXPUpdate');
+
+Route::get('/getTestimonialData', 'HomePageController@getHomeTestimonialData');
+Route::post('/TestimonialAdd', 'HomePageController@TestimonialAdd');
+Route::post('/TestimonialDelete', 'HomePageController@HomeTestimonialDelete');
+Route::post('/getTestimonialEditData', 'HomePageController@HomeTestimonialEdit');
+Route::post('/TestimonilaUpdate', 'HomePageController@TestimonilaUpdate');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,6 +92,7 @@ Route::get('/others', 'OthersModelController@otherIndex');
 Route::post('/OpeningHour', 'OthersModelController@addOpeningHour');
 Route::post('/address', 'OthersModelController@addAddress');
 Route::post('/phone', 'OthersModelController@addPhone');
+Route::post('/phone2', 'OthersModelController@addPhone2');
 Route::post('/email', 'OthersModelController@addEmail');
 Route::post('/title', 'OthersModelController@addTitle');
 Route::post('/gmap', 'OthersModelController@addGmap');
@@ -92,10 +138,26 @@ Route::get('/getContactData', 'contactController@getContactData');
 
 Route::get('/contact', 'contactController@contactIndex');
 Route::get('/getContactData', 'contactController@getContactData');
- Route::post('/deleteContactData', 'contactController@contactDelete');
+Route::post('/deleteContactData', 'contactController@contactDelete');
 
 
 
+
+// About Page Route
+Route::get('/adminAbout', 'AboutController@AboutIndex');
+Route::post('/addAboutImage', 'AboutController@imageAdd');
+Route::post('/addAboutTitle', 'AboutController@addTitle');
+Route::post('/addDescription', 'AboutController@addDescription');
+Route::post('/addFbLike', 'AboutController@addFbLike');
+Route::post('/addTwitter', 'AboutController@addTwitter');
+Route::post('/addYoutube', 'AboutController@addYoutube');
+Route::post('/addLinkedIn', 'AboutController@addLinkedIn');
+Route::post('/addBooking', 'AboutController@addBooking');
+Route::get('/getESData', 'AboutController@getExtraServicesData');
+Route::post('/addES', 'AboutController@aboutESAdd');
+Route::post('/aboutESdelete', 'AboutController@AboutESDelete');
+Route::post('/AboutESDetails', 'AboutController@AboutDetailEdit');
+Route::post('/AboutESUpdate', 'AboutController@AboutESUpdate');
 
 
 
@@ -145,3 +207,60 @@ Route::get('/blog', 'client\blogController@blogIndex');
 Route::get('/single-blog', 'client\singleBlogeController@singleBlogIndex');
 Route::get('/single-facility-{facilityId}', 'client\singleFacilityController@singleFacilityIndex')->name('singleFacility');
 Route::get('/single-room-{roomId}', 'client\singleRoomController@singleRoomIndex')->name('singleRoom');
+
+
+
+
+
+
+
+//Clear Cache facade value:
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    return '<h1>Cache facade value cleared</h1>';
+});
+
+//Reoptimized class loader:
+Route::get('/optimize', function() {
+    $exitCode = Artisan::call('optimize:clear');
+    return '<h1>Reoptimized class loader</h1>';
+});
+
+//Route cache:
+Route::get('/route-cache', function() {
+    $exitCode = Artisan::call('route:cache');
+    return '<h1>Routes cached</h1>';
+});
+
+//Clear Route cache:
+Route::get('/route-clear', function() {
+    $exitCode = Artisan::call('route:clear');
+    return '<h1>Route cache cleared</h1>';
+});
+
+//Clear View cache:
+Route::get('/view-clear', function() {
+    $exitCode = Artisan::call('view:clear');
+    return '<h1>View cache cleared</h1>';
+});
+
+//Clear Config cache:
+Route::get('/config-cache', function() {
+    $exitCode = Artisan::call('config:cache');
+    return '<h1>Clear Config cleared</h1>';
+});
+
+//Clear Config cache:
+Route::get('/config-clear', function() {
+    $exitCode = Artisan::call('config:clear');
+    return '<h1> Config cleared</h1>';
+});
+
+
+
+Route::get("/storage-link", function () {
+    $targetFolder = storage_path("app/public");
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
+    symlink($targetFolder, $linkFolder);
+});
+

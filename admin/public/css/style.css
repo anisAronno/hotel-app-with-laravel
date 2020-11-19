@@ -98,3 +98,8 @@ margin: 0px  !important;
     object-fit: cover;
     height: 200px;
 }
+
+ .checked{
+	color:red !important;
+	
+}

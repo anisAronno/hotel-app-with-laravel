@@ -51,13 +51,11 @@ class SliderController extends Controller
         $button = $data['0']->button;
         if ($req->file('photo')) {
             
-            $fileName=$req->file('photo')->getClientOriginalName();
+        $fileName=$req->file('photo')->getClientOriginalName();
 
-            $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
+        $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
-            $imageRealPath=asset('images')."/".$fileName;
-
-
+        $imageRealPath=asset('images')."/".$fileName;
             $result = SliderModel::where('id', '=', $id)->update(['title' => $name, 'sub_title' => $description, 'button' => $button, 'image' => $imageRealPath]);
             if ($result == true) {
                 return 1;
@@ -85,6 +83,7 @@ class SliderController extends Controller
     function SliderAdd(Request $req)
     {
 
+       
         $data = json_decode($_POST['data']);
         $name = $data['0']->name;
         $description = $data['0']->description;

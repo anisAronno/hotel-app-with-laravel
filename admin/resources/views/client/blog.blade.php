@@ -27,7 +27,7 @@
                         Hotel WP, we’ve experienced more than 50 years of hosting family celebrations like
                         birthdays, confirmations, graduations, engagement parties, anniversaries, vow renewals,
                         reunions, and more.</p>
-                    <a href="blog-single.html"> <button class="blog-button">READ MORE</button></a>
+                    <a href="{{ url('/single-blog') }}"> <button class="blog-button">READ MORE</button></a>
                 </div>
 
                 <div class="blog-content pt-5">
@@ -44,7 +44,7 @@
                         Hotel WP, we’ve experienced more than 50 years of hosting family celebrations like
                         birthdays, confirmations, graduations, engagement parties, anniversaries, vow renewals,
                         reunions, and more.</p>
-                    <a href="blog-single.html"> <button class="blog-button">READ MORE</button></a>
+                    <a href="{{ url('/single-blog') }}"> <button class="blog-button">READ MORE</button></a>
                 </div>
 
                 <div class="blog-content pt-5">
@@ -61,7 +61,7 @@
                         Hotel WP, we’ve experienced more than 50 years of hosting family celebrations like
                         birthdays, confirmations, graduations, engagement parties, anniversaries, vow renewals,
                         reunions, and more.</p>
-                    <a href="blog-single.html"> <button class="blog-button">READ MORE</button></a>
+                    <a href="{{ url('/single-blog') }}"> <button class="blog-button">READ MORE</button></a>
                 </div>
 
                 <div class="blog-content pt-5">
@@ -78,7 +78,7 @@
                         Hotel WP, we’ve experienced more than 50 years of hosting family celebrations like
                         birthdays, confirmations, graduations, engagement parties, anniversaries, vow renewals,
                         reunions, and more.</p>
-                    <a href="blog-single.html"> <button class="blog-button">READ MORE</button></a>
+                    <a href="{{ url('/single-blog') }}"> <button class="blog-button">READ MORE</button></a>
                 </div>
 
                 <div class="blog-content pt-5">
@@ -95,7 +95,7 @@
                         Hotel WP, we’ve experienced more than 50 years of hosting family celebrations like
                         birthdays, confirmations, graduations, engagement parties, anniversaries, vow renewals,
                         reunions, and more.</p>
-                    <a href="blog-single.html"> <button class="blog-button">READ MORE</button></a>
+                    <a href="{{ url('/single-blog') }}"> <button class="blog-button">READ MORE</button></a>
                 </div>
 
                 <div class="pagination text-center">

@@ -16,6 +16,7 @@ class CreateOthersModelsTable extends Migration {
             $table->string('logo')->nullable();
             $table->string('title')->nullable();
             $table->string('phone')->nullable();
+            $table->string('phone2')->nullable();
             $table->string('email')->nullable();
             $table->text('address')->nullable();
             $table->text('opening_hour')->nullable();

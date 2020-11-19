@@ -7,7 +7,7 @@ use App\AdminModel;
 class LoginController extends Controller
 {
     function LoginIndex(){
-    	return view('admin.login');
+    	return view('admin.LoginHBB');
     }
 
     function onLogout(Request $request){

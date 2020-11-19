@@ -78,6 +78,27 @@ class OthersModelController extends Controller
             }
         }
 
+        
+        public function addPhone2(Request $request)
+        {
+            $phone2 = $request->input("phone2");
+
+            $valuecheck = (OthersModel::orderBy('id', 'desc')->get());
+
+
+
+            if( count($valuecheck)>0){
+                $result = OthersModel::where('id', '=',  $valuecheck['0']->id)->update(['phone2' => $phone2]);
+            }
+            else{
+                $result = OthersModel::insert(['phone2' => $phone2]);
+            }
+            if ($result == true) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
 
         public function addEmail(Request $request)
         {
@@ -157,13 +178,12 @@ class OthersModelController extends Controller
         {
 
             $valuecheck = (OthersModel::orderBy('id', 'desc')->get());
-
+            
             $fileName=$req->file('photo')->getClientOriginalName();
 
-            $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
+        $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
-            $imageRealPath=asset('images')."/".$fileName;
-
+        $imageRealPath=asset('images')."/".$fileName;
             if( count($valuecheck)>0){
             $result = OthersModel::where('id', '=',  $valuecheck['0']->id)->update(['logo' => $imageRealPath]);
             } else{

@@ -20,15 +20,27 @@
                     <div class="col-md-6">
                         <p><i class="far fa-envelope"></i> EMAIL <br>
                            <a class="text-decoration-none text-dark" href="mailto:support@foxuries.com"><?php if ($othersData) {echo $othersData->email;}?></a> </p><br>
-                        <p> <i class="fas fa-stopwatch"></i> OPEN HOUR <br> <?php if ($othersData) {echo $othersData->opening_hour;}?></p><br>
+                        <p> <i class="fas fa-stopwatch"></i> OPEN HOUR <br>
+                            <?php if ($othersData): ?>
+                            {!! nl2br(e($othersData->opening_hour)) !!}
+                            <?php endif; ?> 
+                            </p><br>
 
                     </div>
                     <div class="col-md-6">
                         <p><i class="fas fa-map-marker-alt"></i> ADDRESS<br>
-                            <?php if ($othersData) {echo $othersData->address;}?></p><br>
 
-                        <p><i class="fas fa-phone-alt"></i> PHONE <br>
-                           <a  class="text-decoration-none text-dark" href="tel: +8005678990"><?php if ($othersData) {echo $othersData->phone;}?></a> <br> <a class="text-decoration-none text-dark" href="tel: +8441800 3355"></a></p> <br>
+                            <?php if ($othersData): ?>
+                            {!! nl2br(e($othersData->address)) !!}
+                            <?php endif; ?>
+
+
+                           
+
+                        <p class="mt-2"><i class="fas fa-phone-alt"></i> PHONE <br>
+                           <a  class="text-decoration-none text-dark" href="tel: +8005678990"><?php if ($othersData) {echo $othersData->phone;}?></a> <br> <a class="text-decoration-none text-dark" href="tel: +8441800 3355"></a>
+                           <a  class="text-decoration-none text-dark" href="tel: +8005678990"><?php if ($othersData) {echo $othersData->phone2;}?></a> <br> <a class="text-decoration-none text-dark" href="tel: +8441800 3355"></a>
+                        </p> <br>
                     </div>
                 </div>
             </div>

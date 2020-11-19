@@ -25,7 +25,7 @@
                                 class="text-decoration-none font-weight-bold">Lake view, Price</a></span></p>
 
                     <p>
-                        <span class="room-item-price">1,270&#2547; </span>
+                        <span class="room-item-price">&#2547; 1,270 </span>
 
 
                     </p>
@@ -45,7 +45,7 @@
                                 class="text-decoration-none font-weight-bold">Lake view, Price</a></span></p>
 
                     <p>
-                        <span class="room-item-price">1,694&#2547; </span>
+                        <span class="room-item-price">&#2547; 1,694</span>
 
                     </p>
                 </div>
@@ -64,7 +64,7 @@
                                 class="text-decoration-none font-weight-bold">Lake view,  Price</a></span></p>
 
                     <p>
-                        <span class="room-item-price">1,524&#2547; </span>
+                        <span class="room-item-price">&#2547; 1,524</span>
 
                     </p>
                 </div>
@@ -83,7 +83,7 @@
                                 class="text-decoration-none font-weight-bold">Lake view, Price</a></span></p>
 
                     <p>
-                                                    <span class="room-item-price">3,811&#2547; </span>
+                                                    <span class="room-item-price">&#2547; 3,811</span>
 
 
                     </p>
@@ -102,7 +102,7 @@
                                     class="far fa-folder-open"></i>Balcony</a></span></span>, <span> <a href="#"
                                 class="text-decoration-none font-weight-bold">Lake view,  Price</a></span></p>
                     <p>
-                                                    <span class="room-item-price">2,032&#2547; </span>
+                                                    <span class="room-item-price">&#2547; 2,032</span>
 
                     </p>
                 </div>

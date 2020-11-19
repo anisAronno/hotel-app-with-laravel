@@ -19,7 +19,7 @@ counters.forEach(counter => {
 		// Check if target is reached
 		if (count < target) {
 			// Add inc to count and output in counter
-			counter.innerText = count + inc;
+			counter.innerText = count + parseInt(inc);
 			// Call function every ms
 			setTimeout(updateCount, 1);
 		} else {
