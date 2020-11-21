@@ -47,7 +47,7 @@ Route::post('/addHADescription', 'HomePageController@addDescription');
 Route::post('/addHAimage', 'HomePageController@imageAdd');
 Route::post('/addHAimage2', 'HomePageController@imageAdd2');
 Route::post('/addHAimage3', 'HomePageController@imageAdd3');
-Route::post('/addEXPimage', 'HomePageController@imageEXPAdd');
+Route::post('/addResturantMenuimage', 'HomePageController@imageResturantMenuAdd');
 
 Route::get('/getFSdata', 'HomePageController@getHomeFeaturedSpecialsData');
 Route::post('/addFSdata', 'HomePageController@homeSFAdd');
@@ -56,11 +56,11 @@ Route::post('/HomeFSEdit', 'HomePageController@HomeFSEdit');
 Route::post('/HomeFSUpdate', 'HomePageController@HomeFSUpdate');
 
 
-Route::get('/getEXPdata', 'HomePageController@getHomeExclusiveSpecialsData');
-Route::post('/homeEXPAdd', 'HomePageController@homeEXPAdd');
+Route::get('/getResturantMenudata', 'HomePageController@getHomeExclusiveSpecialsData');
+Route::post('/homeResturantMenuAdd', 'HomePageController@homeResturantMenuAdd');
 Route::post('/HomeEXFDelete', 'HomePageController@HomeEXFDelete');
-Route::post('/HomeEXPEdit', 'HomePageController@HomeEXPEdit');
-Route::post('/HomeEXPUpdate', 'HomePageController@HomeEXPUpdate');
+Route::post('/HomeResturantMenuEdit', 'HomePageController@HomeResturantMenuEdit');
+Route::post('/HomeResturantMenuUpdate', 'HomePageController@HomeResturantMenuUpdate');
 
 Route::get('/getTestimonialData', 'HomePageController@getHomeTestimonialData');
 Route::post('/TestimonialAdd', 'HomePageController@TestimonialAdd');
@@ -72,13 +72,19 @@ Route::post('/TestimonilaUpdate', 'HomePageController@TestimonilaUpdate');
 
 
 
+//Resturant Admin Route
 
 
+Route::get('/resturantPage', 'ResturantController@ResturantIndex');
+Route::post('/addResturantTitle', 'ResturantController@addTitle');
+Route::post('/addResturantDescription', 'ResturantController@addDescription');
+Route::post('/addResturantVideo', 'ResturantController@addResturantVideo');
+Route::get('/getresturantImage', 'ResturantController@getResturantImageData');
+Route::post('/ResturantAboutImageDelete', 'ResturantController@ResturantAboutImageDelete');
+Route::post('/ResturantAboutImageAdd', 'ResturantController@ResturantAboutImageAdd');
 
 
-
-
-
+Route::get('/getResturantMenudata', 'ResturantController@getResturantMenuData');
 
 
 

@@ -3,9 +3,10 @@
 
 @section('content')
     <div class="container ">
+        
         <div class="row">
             <div class="col-md-10 offset-md-1 mt-5 border border-dark">
-
+                <h2 class="text-center p-3 mb-3 border-bottom border-dark">About Page  Settings</h2>
 
                 <table class="table table-striped table-bordered mt-2" cellspacing="0" width="100%">
                     <thead>
@@ -189,7 +190,7 @@
 
     <div class="row mt-5">
         <div class="col-md-10 offset-md-1 border border-dark">
-
+            <h2 class="text-center p-3 border-bottom border-dark">Extra Services Section</h2>
             <div id="mainDivProjects" class="container-fluid d-none">
                 <div class="row">
                     <div class="col-md-12 p-2">

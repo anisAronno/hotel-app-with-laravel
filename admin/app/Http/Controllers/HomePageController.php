@@ -153,7 +153,7 @@ class HomePageController extends Controller
         $valuecheck = (HomeAboutSecTionModel::orderBy('id', 'desc')->get());
         
         $fileName=$req->file('photo')->getClientOriginalName();
-
+       
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
         $imageRealPath=asset('images')."/".$fileName;

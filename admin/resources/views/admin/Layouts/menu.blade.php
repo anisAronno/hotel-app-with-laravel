@@ -26,13 +26,12 @@
                         <li> <a href="{{ url('/newslatter') }}"><span> <i class="fas fa-bell"></i></span><span class="hide-menu">Newslatter</span></a></li>
                         <li> <a href="{{ url('/contact') }}"><span> <i class="fas fa-envelope"></i> </span><span class="hide-menu">Contact</span></a></li>
                         <li> <a href="{{ url('/slider') }}"><span> <i class="fas fa-image"></i> </span><span class="hide-menu">Slider</span></a></li>
-                        <li> <a href="{{ url('/homePage') }}"><span> <i class="fas fa-home"></i> </span><span class="hide-menu">Home Page</span></a></li>
-                        <li> <a href="{{ url('/adminAbout') }}"><span> <i class="fas fa-users"></i> </span><span class="hide-menu">About</span></a></li>
+                        <li> <a href="{{ url('/homePage') }}"><span> <i class="fas fa-igloo"></i> </span><span class="hide-menu">Home Page</span></a></li>
+                        <li> <a href="{{ url('/adminAbout') }}"><span> <i class="fas fa-address-card"></i></i> </span><span class="hide-menu">About</span></a></li>
+                        <li> <a href="{{ url('/resturantPage') }}"><span> <i class="fas fa-utensils"></i> </span><span class="hide-menu">Resturant</span></a></li>
                         <li> <a href="{{ url('/others') }}"><span> <i class="fas fa-cog"></i> </span><span class="hide-menu">Generale Settings</span></a></li>
                         <li> <a href="{{ url('/social') }}"><span> <i class="fas fa-thumbs-up"></i> </span><span class="hide-menu">Social Settings</span></a></li>
-                        <!-- <li> <a href="{{ url('/message') }}"><span> <i class="fas fa-envelope"></i> </span><span class="hide-menu">Messages</span></a></li>
-                        <li> <a href="{{ url('/review') }}"><span> <i class="fas fa-comments"></i> </span><span class="hide-menu">Review</span></a></li>
-                        <li> <a href="{{url('/Photo')}}"><span> <i class="far fa-comments"></i> </span><span class="hide-menu">Photo Gallery</span></a></li> -->
+                      
                     </ul>
                 </nav>
             </div>
