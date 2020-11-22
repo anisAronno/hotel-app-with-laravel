@@ -264,7 +264,7 @@ $('#confirmDeleteimage').click(function() {
         });
 
 
-        //Exclusive Add modal save button
+        //ResturantMenu Add modal save button
 
         $('#imageAddConfirmBtn').click(function() {
             var imageimg = $('#imageimg').prop('files')[0];
@@ -284,7 +284,7 @@ $('#confirmDeleteimage').click(function() {
             }
         })
 
-        //Exclusive Add Method
+        //ResturantMenu Add Method
 
 
         function imageAdd(imageimg) {
@@ -336,7 +336,7 @@ $('#confirmDeleteimage').click(function() {
 
 
         getResturantMenuData();
-        // for Exclusive table
+        // for ResturantMenu table
 
         function getResturantMenuData() {
 
@@ -353,7 +353,7 @@ $('#confirmDeleteimage').click(function() {
                         $('#ResturantMenu_table').empty();
                         var count = 1;
                         var dataJSON = response.data;
-                        console.log(dataJSON);
+                       
                                    
 
                         $.each(dataJSON, function(i, item) {
@@ -399,7 +399,7 @@ $('#confirmDeleteimage').click(function() {
                             $('#ResturantMenuESEditId').html(id);
 
                             $('#updateResturantMenuModal').modal('show');
-                           ResturantMenuUpdateDetails(id);
+                            ResturantmenuUpdateDetails(id);
 
                         })
 
@@ -417,6 +417,277 @@ $('#confirmDeleteimage').click(function() {
 
 
         }
+
+
+
+        //add button modal show for add new entity
+
+        $('#addbtnResturantMenu').click(function() {
+            $('#addResturantMenuModal').modal('show');
+        });
+
+     
+        // Material Select Initialization
+        $(document).ready(function () {
+        $('.mdb-select').material_select();
+        });
+
+        //ResturantMenu Add modal save button
+
+        $('#ResturantMenuAddConfirmBtn').click(function() {
+            var ResturantMenu_title = $('#ResturantMenuTitle').val();
+            var ResturantMenu_description = $('#ResturantMenuDescription').val();
+            var ResturantMenu_categories = $('#ResturantMenuCategories').val();
+            ResturantMenuAdd(ResturantMenu_title, ResturantMenu_description, ResturantMenu_categories);
+
+        })
+
+        function ResturantMenuAdd(ResturantMenu_title, ResturantMenu_description, ResturantMenu_categories) {
+
+            if (ResturantMenu_title.length == 0) {
+
+                toastr.error('Title is empty!');
+
+            } else if (ResturantMenu_description == 0) {
+
+                toastr.error('description is empty!');
+            }else if (ResturantMenu_categories == 0) {
+
+                toastr.error('description is empty!');
+            } else {
+
+                $('#ResturantMenuAddConfirmBtn').html(
+                    "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+                axios.post('/ResturantMenuAdd', {
+                    ResturantMenu_title: ResturantMenu_title,
+                    ResturantMenu_description: ResturantMenu_description,
+                    ResturantMenu_categories: ResturantMenu_categories,
+                    })
+
+                .then(function(response) {
+                    console.log(response.data);
+                    $('#ResturantMenuAddConfirmBtn').html("Save");
+
+                    if (response.status = 200) {
+                        if (response.data == 1) {
+                            $('#addResturantMenuModal').modal('hide');
+                            toastr.success('Add New Success .');
+                            getResturantMenuData();
+                        } else {
+                            $('#addResturantMenuModal').modal('hide');
+                            toastr.error('Add New Failed');
+                            getResturantMenuData();
+                        }
+                    } else {
+                        $('#addResturantMenuModal').modal('hide');
+                        toastr.error('Something Went Wrong');
+                    }
+
+
+                }).catch(function(error) {
+
+                    $('#addResturantMenuModal').modal('hide');
+                    toastr.error('Something Went Wrong');
+
+                });
+
+            }
+
+        }
+
+
+
+
+//  ResturantMenu  delete modal yes button
+
+        $('#confirmDeleteResturantMenu').click(function() {
+            var id = $('#ResturantMenuDeleteId').html();
+            // var id = $(this).data('id');
+            DeleteDataResturantmenu(id);
+
+        })
+
+
+        //delete ResturantMenu   function
+
+        function DeleteDataResturantmenu(id) {
+            $('#confirmDeleteResturantMenu').html(
+                "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+            axios.post('/ResturantmenuDelete', {
+                    id: id
+                })
+                .then(function(response) {
+                    $('#confirmDeleteResturantMenu').html("Yes");
+
+                    if (response.status == 200) {
+
+
+                        if (response.data == 1) {
+                            $('#deleteModalResturantMenu').modal('hide');
+                            toastr.error('Delete Success.');
+                            getResturantMenuData();
+                        } else {
+                            $('#deleteModalResturantMenu').modal('hide');
+                            toastr.error('Delete Failed');
+                            getResturantMenuData();
+                        }
+
+                    } else {
+                        $('#deleteModalResturantMenu').modal('hide');
+                        toastr.error('Something Went Wrong');
+                    }
+
+                }).catch(function(error) {
+
+                    $('#deleteModalResturantMenu').modal('hide');
+                    toastr.error('Something Went Wrong');
+
+                });
+
+        }
+
+
+
+
+
+//Get  Update Excludive Feature Data
+
+        // Material Select Initialization
+        $(document).ready(function () {
+        $('.mdb-select2').material_select();
+        });
+
+
+
+
+function ResturantmenuUpdateDetails(id) {
+
+axios.post('/getResturantmenuEditData', {
+        id: id
+    })
+    .then(function(response) {
+       
+        if (response.status == 200) {
+
+           
+            $('#loadDivResturantmenu').addClass('d-none');
+            $('#ResturantMenuEditForm').removeClass('d-none');
+            var jsonData = response.data;
+            
+            $('#ResturantmenudTitleIdUpdate').val(jsonData[0].title);
+            $('#ResturantmenudDesIdUpdate').val(jsonData[0].description);
+            $('#ResturantmenudCatIdUpdate').val(jsonData[0].category);
+        } else {
+
+            $('#loadDivResturantmenu').addClass('d-none');
+            $('#wrongDivResturantmenu').removeClass('d-none');
+        }
+
+    }).catch(function(error) {
+
+        $('#loadDivResturantmenu').addClass('d-none');
+        $('#wrongDivResturantmenu').removeClass('d-none');
+
+    });
+
+}
+
+
+
+
+
+
+//Featured Specials update modal save button
+
+ $('#ResturantMenuUpdateConfirmBtn').click(function() {
+
+
+var ResturantMenuidUpdate = $('#ResturantMenuESEditId').html();
+var ResturantMenu_title = $('#ResturantmenudTitleIdUpdate').val();
+var ResturantMenu_description = $('#ResturantmenudDesIdUpdate').val();
+var ResturantMenu_category = $('#ResturantmenudCatIdUpdate').val();
+
+
+
+ResturantMenuUpdate(ResturantMenuidUpdate, ResturantMenu_title, ResturantMenu_description, ResturantMenu_category);
+
+})
+
+
+
+
+
+//update Special Feature data using modal
+
+function ResturantMenuUpdate(ResturantMenuidUpdate, ResturantMenu_title, ResturantMenu_description, ResturantMenu_category) {
+
+
+
+if (ResturantMenu_title.length == 0) {
+
+    toastr.error('Title  is empty!');
+
+} else if (ResturantMenu_description == 0) {
+
+    toastr.error(' description is empty!');
+
+}else if (ResturantMenu_category == 0) {
+
+    toastr.error(' description is empty!');
+
+} else {
+    $('#ResturantMenuUpdateConfirmBtn').html(
+        "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+    axios.post('/ResturantMenuUpdate', {
+            id: ResturantMenuidUpdate,
+            ResturantMenu_title: ResturantMenu_title,
+            ResturantMenu_description: ResturantMenu_description,
+            ResturantMenu_category: ResturantMenu_category
+        })
+
+
+        .then(function(response) {
+            console.log(response.data);
+            $('#ResturantMenuUpdateConfirmBtn').html("Update");
+
+            if (response.status = 200) {
+                if (response.data == 1) {
+                    $('#updateResturantMenuModal').modal('hide');
+                    toastr.success('Update Success.');
+                    getResturantMenuData();
+
+                } else {
+                    $('#updateResturantMenuModal').modal('hide');
+                    toastr.error('Update Failed');
+                    getResturantMenuData();
+
+                }
+            } else {
+                $('#updateResturantMenuModal').modal('hide');
+                toastr.error('Something Went Wrong');
+            }
+
+
+        }).catch(function(error) {
+
+            $('#updateResturantMenuModal').modal('hide');
+            toastr.error('Something Went Wrong');
+
+        });
+}
+}
+
+
+
+
+
+
+
+
+
 
 
 

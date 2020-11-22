@@ -178,6 +178,86 @@ class ResturantController extends Controller
  }
 
 
+ function ResturantMenuAdd(Request $request)
+ {
+
+     $ResturantMenu_title = $request->input("ResturantMenu_title");
+     $ResturantMenu_description = $request->input("ResturantMenu_description");
+     $ResturantMenu_categories = $request->input("ResturantMenu_categories");
+
+    try {
+        $result = ResturantMenuModel::insert([
+            'title' => $ResturantMenu_title,
+            'description' => $ResturantMenu_description,
+            'category' => $ResturantMenu_categories
+        ]);
+    } catch (\Throwable $th) {
+        return response()->json(array('error'=>$th));
+    }
+
+     
+     if ($result == true) {
+         return 1;
+     } else {
+         return 0;
+     }
+ }
+
+
+ function ResturantmenuDelete(Request $req)
+ {
+     $id = $req->input('id');
+     $result = ResturantMenuModel::where('id', '=', $id)->delete();
+     if ($result == true) {
+         return 1;
+     } else {
+         return 0;
+     }
+ }
+
+
+
+ function getResturantmenuEditData(Request $req)
+ {
+     $id = $req->input('id');
+       
+     try {
+         $result = json_encode(ResturantMenuModel::where('id', '=', $id)->get());
+         return $result;
+        
+     } catch (\Throwable $th) {
+        return response()->json(array('error'=>$th));
+     }
+   
+ }
+
+
+
+ function ResturantMenuUpdate(Request $request)
+    {
+
+        $id = $request->input("id");
+        $ResturantMenu_title = $request->input("ResturantMenu_title");
+        $ResturantMenu_description = $request->input("ResturantMenu_description");
+        $ResturantMenu_category = $request->input("ResturantMenu_category");
+        
+            $result = ResturantMenuModel::where('id', '=', $id)->update(['title' => $ResturantMenu_title, 'description' => $ResturantMenu_description,'category' => $ResturantMenu_category ]);
+            if ($result == true) {
+                return 1;
+            } else {
+                return 0;
+            }
+        
+    }
+
+
+
+
+
+
+
+
+
 
 
 }

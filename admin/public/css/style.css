@@ -103,3 +103,9 @@ margin: 0px  !important;
 	color:red !important;
 	
 }
+
+
+.modal { overflow: visible; }
+.modal-body { overflow-y: visible !important; }
+
+

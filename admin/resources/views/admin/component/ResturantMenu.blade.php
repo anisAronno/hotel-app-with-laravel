@@ -58,21 +58,20 @@
                     </div>
                     <div class="modal-body  text-center">
                         <div class="container">
-                            <div class="row">
+                            
 
                                 <input id="ResturantMenuTitle" type="text" id="" class="form-control mb-3"
                                     placeholder="Title">
 
                                 <textarea id="ResturantMenuDescription" type="text" id="" class="form-control mb-3"
-                                    placeholder=" Description" cols="30" rows="5"></textarea>
+                                    placeholder=" Description..." cols="30" rows="5"></textarea>
                                 
-                                <select name="" id="ResturantMenuCategories" >
-                                    <option value="1">Menu Card Details</option>
+                                <select name="" id="ResturantMenuCategories" style="z-index: 2099; " class="mdb-select m-5 px-2">
+                                    <option value="1">Basic Menu</option>
                                     <option value="2">Set menu</option>
                                     <option value="3">Party Menu</option>
                                 </select>
 
-                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -131,14 +130,17 @@
                             <h5 id="ResturantMenuESEditId" class="mt-4 d-none"></h5>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input id="ResturantMenudTitleIdUpdate" type="text" id=""
+                                    <input id="ResturantmenudTitleIdUpdate" type="text" id=""
                                         class="form-control mb-3" placeholder="Title">
-                                    <textarea id="ResturantMenudDesIdUpdate" type="text" id=""
+                                    <textarea id="ResturantmenudDesIdUpdate" type="text" id=""
                                         class="form-control mb-3" placeholder="Description" cols="30"
                                         rows="5"></textarea>
-
+                                        <select name="" id="ResturantmenudCatIdUpdate" class="mdb-select2">
+                                            <option value="1" class="text-center">Basic Menu</option>
+                                            <option value="2" class="text-center">Set menu</option>
+                                            <option value="3" class="text-center">Party Menu</option>
+                                        </select>
                                 </div>
-
                             </div>
                         </div>
                         <img id="projectLoader" class="loding-icon m-5 d-none" src="{{ asset('loader.svg') }}" alt="">
@@ -146,7 +148,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
-                        <button id="ResturantMenudUpdateConfirmBtn" type="button"
+                        <button id="ResturantMenuUpdateConfirmBtn" type="button"
                             class="btn  btn-sm  btn-danger">Update</button>
                     </div>
                 </div>

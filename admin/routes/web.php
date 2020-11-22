@@ -85,9 +85,10 @@ Route::post('/ResturantAboutImageAdd', 'ResturantController@ResturantAboutImageA
 
 
 Route::get('/getResturantMenudata', 'ResturantController@getResturantMenuData');
-
-
-
+Route::post('/ResturantMenuAdd', 'ResturantController@ResturantMenuAdd');
+Route::post('/ResturantmenuDelete', 'ResturantController@ResturantmenuDelete');
+Route::post('/getResturantmenuEditData', 'ResturantController@getResturantmenuEditData');
+Route::post('/ResturantMenuUpdate', 'ResturantController@ResturantMenuUpdate');
 
 
 
