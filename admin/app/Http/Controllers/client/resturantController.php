@@ -24,8 +24,8 @@ class resturantController extends Controller
             'othersData'=>$othersData,
             'socialData'=>$socialData,
             'HomeTestimonialDatas'=>$HomeTestimonialData,
-            'ResturantImage'=>$ResturantImage,
-            'ResturantMenu'=>$ResturantMenu,
+            'ResturantImages'=>$ResturantImage,
+            'ResturantMenus'=>$ResturantMenu,
             'ResturantAbout'=>$ResturantAbout
         ]);
     }

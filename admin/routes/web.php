@@ -92,6 +92,33 @@ Route::post('/ResturantMenuUpdate', 'ResturantController@ResturantMenuUpdate');
 
 
 
+
+//admin panel Facilities management 
+Route::get('/Facilities', 'AdminFacilitiesController@FacilitiesIndex');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //admin panel Home Page Others management with social URL
 
 
