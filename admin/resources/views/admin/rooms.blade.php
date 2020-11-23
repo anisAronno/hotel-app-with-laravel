@@ -98,9 +98,7 @@ $('#roomAddModal').click(function(){
     $('#addRoom').modal('show');
 });
 
-$('#dropzoneForm').submit(function(e) {
-    e.
-})
+
 
 
 </script>

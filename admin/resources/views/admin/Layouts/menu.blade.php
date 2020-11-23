@@ -27,6 +27,7 @@
                         <li> <a href="{{ url('/contact') }}"><span> <i class="fas fa-envelope"></i> </span><span class="hide-menu">Contact</span></a></li>
                         <li> <a href="{{ url('/slider') }}"><span> <i class="fas fa-image"></i> </span><span class="hide-menu">Slider</span></a></li>
                         <li> <a href="{{ url('/homePage') }}"><span> <i class="fas fa-igloo"></i> </span><span class="hide-menu">Home Page</span></a></li>
+                        <li> <a href="{{ url('/admin/rooms') }}"><span> <i class="fas fa-dungeon"></i> </span><span class="hide-menu">Rooms</span></a></li>
                         <li> <a href="{{ url('/adminAbout') }}"><span> <i class="fas fa-address-card"></i></i> </span><span class="hide-menu">About</span></a></li>
                         <li> <a href="{{ url('/resturantPage') }}"><span> <i class="fas fa-utensils"></i> </span><span class="hide-menu">Resturant</span></a></li>
                         <li> <a href="{{ url('/Facilities') }}"><span> <i class="fas fa-chart-line"></i> </span><span class="hide-menu">Facilities</span></a></li>
