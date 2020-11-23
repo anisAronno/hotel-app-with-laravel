@@ -204,9 +204,10 @@ Route::post('/AboutESUpdate', 'AboutController@AboutESUpdate');
 
 Route::get('/admin/rooms','RoomController@index')->name('room.Index');
 Route::get('/getRoomData','RoomController@getRoomData');
-Route::post('/storeimgae','RoomController@storeimage');
+Route::post('/RoomAdd','RoomController@RoomAdd');
 Route::post('/RoomDelete','RoomController@RoomDelete');
 Route::post('/RoomEdit','RoomController@RoomEdit');
+Route::post('/RoomUpdate','RoomController@RoomUpdate');
 
 
 

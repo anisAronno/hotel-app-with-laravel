@@ -24,7 +24,7 @@ class RoomController extends Controller
     }
 
     
-    function RoomAdd(Request $req)
+    public function RoomAdd(Request $req)
     {
 
         $RoomTitle = $req->input("RoomTitle");
@@ -34,6 +34,7 @@ class RoomController extends Controller
         $RoomAdults = $req->input("RoomAdults");
         $RoomChildren = $req->input("RoomChildren");
         $RoomBed = $req->input("RoomBed");
+      
             try {
                 $result = RoomModel::insert([
 
@@ -84,7 +85,28 @@ class RoomController extends Controller
 
 
 
+        function RoomUpdate(Request $req)
+        {
+    
+            $id = $req->input("id");
+            $RoomTitleIdUpdate = $req->input("RoomTitleIdUpdate");
+            $RoomPriceIdUpdate = $req->input("RoomPriceIdUpdate");
+            $RoomLenghtIdUpdate = $req->input("RoomLenghtIdUpdate");
+            $RoomViewIdUpdate = $req->input("RoomViewIdUpdate");
+            $RoomAdultsIdUpdate = $req->input("RoomAdultsIdUpdate");
+            $RoomChildrenIdUpdate = $req->input("RoomChildrenIdUpdate");
+            $RoomBedIdUpdate = $req->input("RoomBedIdUpdate");
 
+                $result = RoomModel::where('id', '=', $id)->update(['title' => $RoomTitleIdUpdate,'price' => $RoomPriceIdUpdate, 'length' => $RoomLenghtIdUpdate, 'view' => $RoomViewIdUpdate, 'adult' => $RoomAdultsIdUpdate, 'children' => $RoomChildrenIdUpdate, 'bed' => $RoomBedIdUpdate]);
+                if ($result == true) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+
+    
+    
+        }
 
 
 

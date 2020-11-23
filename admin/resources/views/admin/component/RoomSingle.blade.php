@@ -3,7 +3,7 @@
         <div class="card-header">
             <div class="row">
                 <p><h5>Rooms</h5></p><div class="m-auto"></div>
-                <button id="addRoomModal" class="btn btn-danger btn-sm">Add Rooms</button>
+                <button id="addRoomModalbtn" class="btn btn-danger btn-sm">Add Rooms</button>
             </div>
         </div>
         <div class="card-body">

@@ -90,7 +90,7 @@
 
         //add button modal show for add new entity
 
-        $('#addRoomModal').click(function() {
+        $('#addRoomModalbtn').click(function() {
             $('#addRoomModal').modal('show');
         });
 
@@ -159,6 +159,7 @@
                     })
 
                     .then(function(response) {
+                        console.log(response.data);
 
                         $('#RoomAddConfirmBtn').html("Save");
 
@@ -283,9 +284,9 @@
 
                 // update modal save button
 
-                $('#ConfirmBtn').click(function() {
+                $('#RoomConfirmBtn').click(function() {
                     
-                    var idUpdate = $('#EditId').html();
+                    var idUpdate = $('#RoomEditId').html();
                     var RoomTitleIdUpdate = $('#RoomTitleIdUpdate').val();
                     var RoomPriceIdUpdate = $('#RoomPriceIdUpdate').val();
                     var RoomLenghtIdUpdate = $('#RoomLenghtIdUpdate').val();
@@ -295,7 +296,7 @@
                     var RoomBedIdUpdate = $('#RoomBedIdUpdate').val();
 
 
-                   Update(RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate);
+                    RoomUpdate(idUpdate, RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate);
 
                 })
 
@@ -305,67 +306,82 @@
 
                 //update project data using modal
 
-                function Update(RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate) {
+                function RoomUpdate(idUpdate, RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate) {
 
 
 
                     if (RoomTitleIdUpdate.length == 0) {
 
-                        toastr.error(' name is empty!');
+                        toastr.error('Room name is empty!');
 
                     }
                     else if (RoomPriceIdUpdate.length == 0) {
 
-                        toastr.error(' name is empty!');
+                        toastr.error('Room name is empty!');
 
                     } else if (RoomLenghtIdUpdate.length == 0) {
 
-                        toastr.error(' description is empty!');
+                        toastr.error('Room description is empty!');
 
-                    } else if (desUpdate.length == 0) {
+                    } else if (RoomViewIdUpdate.length == 0) {
 
-                        toastr.error(' description is empty!');
+                        toastr.error('Room description is empty!');
+
+                    }else if (RoomAdultsIdUpdate.length == 0) {
+
+                        toastr.error('Room description is empty!');
+
+                    }else if (RoomChildrenIdUpdate.length == 0) {
+
+                        toastr.error('Room description is empty!');
+
+                    }else if (RoomBedIdUpdate.length == 0) {
+
+                        toastr.error('Room description is empty!');
 
                     } else {
-                        $('#ConfirmBtn').html(
+                        $('#RoomConfirmBtn').html(
                             "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
 
                        
 
-                        axios.post('/Update', {
+                        axios.post('/RoomUpdate', {
                                 id: idUpdate,
-                                PageIdUpdate: PageIdUpdate,
-                                name: nameUpdate,
-                                description: desUpdate,
-                                SubTitle: SubTitle,
+                                RoomTitleIdUpdate: RoomTitleIdUpdate,
+                                RoomPriceIdUpdate: RoomPriceIdUpdate,
+                                RoomLenghtIdUpdate: RoomLenghtIdUpdate,
+                                RoomViewIdUpdate: RoomViewIdUpdate,
+                                RoomAdultsIdUpdate: RoomAdultsIdUpdate,
+                                RoomChildrenIdUpdate: RoomChildrenIdUpdate,
+                                RoomBedIdUpdate: RoomBedIdUpdate,
 
                             
                         }).then(function(response) {
 
-                            $('#ConfirmBtn').html("Update");
+                            $('#RoomConfirmBtn').html("Update");
 
                             if (response.status = 200) {
 
                                 if (response.data == 1) {
-                                    $('#updateModal').modal('hide');
+                                    $('#updateRoomModal').modal('hide');
                                     toastr.success('Update Success.');
-                                    getData();
+                                    getRoomData();
 
                                 } else {
-                                    $('#updateModal').modal('hide');
+                                    $('#updateRoomModal').modal('hide');
                                     toastr.error('Update Failed');
-                                    getData();
+                                    getRoomData();
 
                                 }
                             } else {
-                                $('#updateModal').modal('hide');
+                                $('#updateRoomModal').modal('hide');
                                 toastr.error('Something Went Wrong');
                             }
 
 
                         }).catch(function(error) {
 
-                            $('#updateModal').modal('hide');
+                            $('#updateRoomModal').modal('hide');
                             toastr.error('Something Went Wrong');
 
                         });
