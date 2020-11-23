@@ -295,7 +295,7 @@
                     var RoomBedIdUpdate = $('#RoomBedIdUpdate').val();
 
 
-                   Update(PageIdUpdate, idUpdate, nameUpdate, desUpdate, SubTitle);
+                   Update(RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate);
 
                 })
 
@@ -305,24 +305,24 @@
 
                 //update project data using modal
 
-                function Update(PageIdUpdate, idUpdate, nameUpdate, desUpdate, SubTitle) {
+                function Update(RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate) {
 
 
 
-                    if (PageIdUpdate.length == 0) {
+                    if (RoomTitleIdUpdate.length == 0) {
 
                         toastr.error(' name is empty!');
 
                     }
-                    else if (nameUpdate.length == 0) {
+                    else if (RoomPriceIdUpdate.length == 0) {
 
                         toastr.error(' name is empty!');
 
-                    } else if (SubTitle == 0) {
+                    } else if (RoomLenghtIdUpdate.length == 0) {
 
                         toastr.error(' description is empty!');
 
-                    } else if (desUpdate == 0) {
+                    } else if (desUpdate.length == 0) {
 
                         toastr.error(' description is empty!');
 
