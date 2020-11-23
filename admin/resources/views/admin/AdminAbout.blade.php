@@ -734,9 +734,9 @@
                             $('<tr>').html(
                                 "<td>" + count++ + " </td>" +
 
-                                "<td>" + dataJSON[i].title + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].title + " </td>" +
 
-                                "<td>" + dataJSON[i].description + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].description + " </td>" +
 
                                 "<td><a class='SliderEditIcon' data-id=" + dataJSON[i].id +
                                 "><i class='fas fa-edit'></i></a> </td>" +

@@ -88,7 +88,7 @@
 
             </div>
             <div class="row">
-                <div class="resturant-set-menu p-5 col-md-6">
+                <div class="resturant-set-menu py-5 col-md-5">
                     <h1>Set Menu </h1>
                     <hr class="w-50 text-center mb-5">
                     <div class="row">
@@ -121,13 +121,13 @@
                 </div>
            
 
-            <div class="resturant-party-menu p-5 col-md-6">
+            <div class="resturant-party-menu py-5 col-md-7">
                 <h1>Party Menu </h1>
                 <hr class="w-50 text-center mb-5">
                 <div class="row">
                     @foreach ($ResturantMenus as $ResturantMenu)
                     @if ($ResturantMenu->category==3)
-                    <div class="menu-item text-center mb-5 col-md-6 col-sm-12">
+                    <div class="menu-item text-center mb-5 col-md-4 col-sm-12">
                         <div class="card mb-3 menu-heading text-break  text-white bg-dark" style="max-width: 18rem;">
                             <div class="card-header text-uppercase">
                             @if ($ResturantMenu)

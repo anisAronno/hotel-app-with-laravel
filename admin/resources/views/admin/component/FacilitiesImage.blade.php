@@ -56,7 +56,11 @@
                 <div class="modal-body  text-center">
                     <div class="container">
                         <div class="row">
+                            <select name="" id="pageName"  class="form-control mb-5 mdb-select3" >
+
+                            </select>
                             <input type="file" id="imageimg" class="form-control mb-3" name="text-input">
+                           
                             <img id="addimagepreviewimage" style="height: 100px !important;" class="imgPreview mt-3 "
                                 src="{{ asset('images/default-image.png') }}" />
                         </div>

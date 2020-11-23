@@ -2,153 +2,624 @@
 
 @section('content')
 
-
-<div class="row mt-5">
-    <div class="col-md-10 offset-md-1 border border-dark">
-
-        <div id="mainDivTestimonial" class="container-fluid d-none">
-            <div class="row">
-                <div class="col-md-12 p-2">
-                    <h1 class="text-center">Testimonial Section</h1>
-                    <button id="addbtnTestimonial" class="btn btn-sm btn-danger my-3">Add New</button>
-                    <table id="TestimonialDataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th class="th-sm">Sl.</th>
-                                <th class="th-sm">Name</th>
-                                <th class="th-sm">Image</th>
-                                <th class="th-sm">Date</th>
-                                <th class="th-sm">Testimonial</th>
-                                <th class="th-sm">Edit</th>
-                                <th class="th-sm">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody id="Testimonial_table">
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div id="loadDivTestimonial" class="container">
-            <div class="row">
-                <div class="col-md-12 p-5 text-center">
-                    <img class="loding-icon m-5" src="{{ asset('loader.svg') }}" alt="">
-
-                </div>
-            </div>
-        </div>
-        <div id="wrongDivTestimonial" class="container d-none">
-            <div class="row">
-                <div class="col-md-12 p-5 text-center">
-                    <h3>Something Went Wrong!</h3>
-                </div>
-            </div>
-        </div>
-
-
-
-
-    <!-- Testimonioal add -->
-    <div class="modal fade" id="addTestimonioalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title ml-5">Add New Testimonioal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body  text-center">
-                    <div class="container">
-                        <div class="row">
-                            <input id="TestimonioalName" type="text" class="form-control mb-3" placeholder="Testimonioal Name">
-                            <input id="TestimonioalDate" type="date"  class="form-control mb-3"
-                                placeholder="Testimonioal Description">
-                            <textarea name="" id="TestimonioalDes" cols="30" rows="10" class="form-control mb-3" placeholder="Testimonioal Description"></textarea>
-                            <input type="file" id="Testimonioalimg" class="form-control mb-3" name="text-input">
-                            <img id="addimagepreviewTestimonioal" style="height: 100px !important;" class="imgPreview mt-3 "
-                                src="{{ asset('images/default-image.png') }}" />
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
-                    <button id="TestimonioalAddConfirmBtn" type="button" class="btn  btn-sm  btn-danger">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Testimonioal add -->
-
+@include('admin.component.facilitiesSinglePage')
     
+@include('admin.component.FacilitiesImage')
+        
 
-    <!-- Testimonioal Delete -->
-    <div class="modal fade" id="deleteModalTestimonial" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+           
 
-                <div class="modal-body p-3 text-center">
-                    <h5 class="mt-4">Do you want to Delete</h5>
-                    <h5 id="TestimonioalDeleteId" class="mt-4 d-none "></h5>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">No</button>
-                    <button data-id="" id="confirmDeleteTestimonioal" type="button" class="btn btn-sm btn-danger">Yes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonioal Delete -->
-
-
-    
-    <!-- Testimonial update -->
-    <div class="modal fade" id="updateTestimonialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Update Course</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body  text-center">
-                    <div id="TestimonialEditForm" class="container d-none ">
-                        <h5 id="TestimonialEditId" class="mt-4 d-none"></h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input id="TestimonialNameIdUpdate" type="text" id="" class="form-control mb-3"
-                                    placeholder="Testimonial Name">
-                                <input id="TestimonialDateIdUpdate" type="date" id="" class="form-control mb-3"
-                                    placeholder="Testimonial Date">
-                                    <textarea name="" id="TestimonioalDesIdUpdate" cols="30" rows="10" class="form-control mb-3" placeholder="Testimonioal Description"></textarea>
-                            </div>
-                            <div class="col-md-6">
-
-                                <input class="form-control" id="TestimonioalimgUpdate" type="file">
-                                <img id="imagepreviewTestimonioal" style="height: 200px !important;" class="imgPreview mt-3 " src="" />
-                            </div>
-                        </div>
-                    </div>
-                    <img id="TestimonialLoader" class="loding-icon m-5 d-none" src="{{ asset('loader.svg') }}" alt="">
-                    <h3 id="TestimonialwrongLoader" class="d-none">Something Went Wrong!</h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
-                    <button id="TestimonioalConfirmBtn" type="button" class="btn  btn-sm  btn-danger">Update</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Testimonial update -->
 
 @endsection
+
+
+        @section('script')
+
+            <script>
+                // Facilities Section
+
+
+                getFacilitiesData();
+
+
+                function getFacilitiesData() {
+
+
+                    axios.get('/getFacilitiesData')
+                        .then(function(response) {
+
+                            if (response.status = 200) {
+
+                                $('#mainDivFacilities').removeClass('d-none');
+                                $('#loadDivFacilities').addClass('d-none');
+
+                                $('#FacilitiesDataTable').DataTable().destroy();
+                                $('#Facilities_table').empty();
+                                var count = 1;
+                                var dataJSON = response.data;
+                                $.each(dataJSON, function(i, item) {
+                                    $('<tr>').html(
+                                        "<td>" + count++ + " </td>" +
+
+                                        "<td class='text-break'>" + dataJSON[i].page_title + " </td>" +
+
+                                        "<td class='text-break'>" + dataJSON[i].sub_title + " </td>" +
+
+                                        "<td class='text-break'>" + dataJSON[i].title + " </td>" +
+
+                                  
+
+                                        "<td class='text-break'>" + dataJSON[i].description + " </td>" +
+
+                                        "<td class='text-center'><a class='FacilitiesEditIcon' data-id=" +
+                                        dataJSON[i].id +
+                                        "><i class='fas fa-edit'></i></a> </td>" +
+
+                                        "<td><a class='FacilitiesDeleteIcon' data-id=" + dataJSON[i].id +
+                                        " ><i class='fas fa-trash-alt'></i></a> </td>"
+                                    ).appendTo('#Facilities_table');
+                                });
+
+                                $(".FacilitiesDeleteIcon").click(function() {
+
+                                    var id = $(this).data('id');
+                                    $('#FacilitiesDeleteId').html(id);
+                                    $('#deleteModalFacilities').modal('show');
+
+                                })
+
+                                $(".FacilitiesEditIcon").click(function() {
+
+                                    var id = $(this).data('id');
+                                    $('#FacilitiesEditId').html(id);
+
+                                    $('#updateFacilitiesModal').modal('show');
+                                    FacilitiesUpdateDetails(id);
+
+                                })
+
+
+                            } else {
+                                $('#wrongDivFacilities').removeClass('d-none');
+                                $('#loadDivFacilities').addClass('d-none');
+
+                            }
+                        }).catch(function(error) {
+
+                            $('#wrongDivFacilities').removeClass('d-none');
+                            $('#loadDivFacilities').addClass('d-none');
+                        });
+
+
+                }
+
+
+
+
+
+
+
+                //add button modal show for add new entity
+
+                $('#addbtnFacilities').click(function() {
+                    $('#addFacilitiesModal').modal('show');
+                });
+
+
+                //Exclusive Add modal save button
+
+                $('#FacilitiesAddConfirmBtn').click(function() {
+
+
+                    var FacilitiesPage = $('#FacilitiesPage').val();
+                    var FacilitiesName = $('#FacilitiesName').val();
+                    var FacilitiesDes = $('#FacilitiesDes').val();
+                    var FacilitiesSubTitle = $('#FacilitiesSubTitle').val();
+                    FacilitiesAdd(FacilitiesPage, FacilitiesName, FacilitiesDes, FacilitiesSubTitle);
+
+                })
+
+
+
+
+                function FacilitiesAdd(FacilitiesPage, FacilitiesName, FacilitiesDes, FacilitiesSubTitle) {
+
+
+
+                    if (FacilitiesPage.length == 0) {
+
+                        toastr.error('Facilities Page Title is empty!');
+
+                    }
+                    else if (FacilitiesName.length == 0) {
+
+                        toastr.error('Facilities Title is empty!');
+
+                    } else if (FacilitiesDes == 0) {
+
+                        toastr.error('Facilities Description is empty!');
+                    } else if (FacilitiesSubTitle == 0) {
+
+                        toastr.error('Facilities Sub Title is empty!');
+                    } else {
+
+                        $('#FacilitiesAddConfirmBtn').html(
+                            "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+                        axios.post('/FacilitiesAdd',{
+
+                            FacilitiesPage: FacilitiesPage,
+                                 name: FacilitiesName,
+                                description: FacilitiesDes,
+                                 FacilitiesSubTitle: FacilitiesSubTitle,
+                    })
+                        
+                        .then(function(response) {
+
+                            $('#FacilitiesAddConfirmBtn').html("Save");
+
+                            if (response.status = 200) {
+                                if (response.data == 1) {
+                                    $('#addFacilitiesModal').modal('hide');
+                                    toastr.success('Add New Success .');
+                                    getFacilitiesData();
+                                } else {
+                                    $('#addFacilitiesModal').modal('hide');
+                                    toastr.error('Add New Failed');
+                                    getFacilitiesData();
+                                }
+                            } else {
+                                $('#addFacilitiesModal').modal('hide');
+                                toastr.error('Something Went Wrong');
+                            }
+
+
+                        }).catch(function(error) {
+
+                            $('#addFacilitiesModal').modal('hide');
+                            toastr.error('Something Went Wrong');
+
+                        });
+
+                    }
+
+                }
+
+
+
+
+                //  Facilities delete modal yes button
+
+                $('#confirmDeleteFacilities').click(function() {
+                    var id = $('#FacilitiesDeleteId').html();
+                    DeleteDataFacilities(id);
+
+                })
+
+
+                //delete courses function
+
+                function DeleteDataFacilities(id) {
+                    $('#confirmDeleteFacilities').html(
+                        "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+                    axios.post('/FacilitiesDelete', {
+                            id: id
+                        })
+                        .then(function(response) {
+                            $('#confirmDeleteFacilities').html("Yes");
+
+                            if (response.status == 200) {
+
+
+                                if (response.data == 1) {
+                                    $('#deleteModalFacilities').modal('hide');
+                                    toastr.error('Delete Success.');
+                                    getFacilitiesData();
+                                } else {
+                                    $('#deleteModalFacilities').modal('hide');
+                                    toastr.error('Delete Failed');
+                                    getFacilitiesData();
+                                }
+
+                            } else {
+                                $('#deleteModalFacilities').modal('hide');
+                                toastr.error('Something Went Wrong');
+                            }
+
+                        }).catch(function(error) {
+
+                            $('#deleteModalFacilities').modal('hide');
+                            toastr.error('Something Went Wrong');
+
+                        });
+
+                }
+
+
+
+
+                //each courses  Details data show for edit
+
+                function FacilitiesUpdateDetails(id) {
+
+                    axios.post('/FacilitiesEdit', {
+                            id: id
+                        })
+                        .then(function(response) {
+
+                            if (response.status == 200) {
+
+                                $('#loadDivFacilities').addClass('d-none');
+                                $('#FacilitiesEditForm').removeClass('d-none');
+                                var jsonData = response.data;
+                                $('#FacilitiesPageIdUpdate').val(jsonData[0].page_title);
+                                $('#FacilitiesNameIdUpdate').val(jsonData[0].title);
+                                $('#FacilitiesSubTitleIdUpdate').val(jsonData[0].sub_title);
+                                $('#FacilitiesDesIdUpdate').val(jsonData[0].description);
+                                
+                                
+                            } else {
+
+                                $('#loadDivFacilities').addClass('d-none');
+                                $('#wrongDivFacilities').removeClass('d-none');
+                            }
+
+                        }).catch(function(error) {
+
+                            $('#loadDivFacilities').addClass('d-none');
+                            $('#wrongDivFacilities').removeClass('d-none');
+
+                        });
+
+                }
+
+
+                
+
+
+
+
+                //Facilities update modal save button
+
+                $('#FacilitiesConfirmBtn').click(function() {
+
+
+                    var idUpdate = $('#FacilitiesEditId').html();
+                    var FacilitiesPageIdUpdate = $('#FacilitiesPageIdUpdate').val();
+                    var nameUpdate = $('#FacilitiesNameIdUpdate').val();
+                    var desUpdate = $('#FacilitiesDesIdUpdate').val();
+                    var SubTitle = $('#FacilitiesSubTitleIdUpdate').val();
+
+
+                   FacilitiesUpdate(FacilitiesPageIdUpdate, idUpdate, nameUpdate, desUpdate, SubTitle);
+
+                })
+
+
+
+
+
+                //update project data using modal
+
+                function FacilitiesUpdate(FacilitiesPageIdUpdate, idUpdate, nameUpdate, desUpdate, SubTitle) {
+
+
+
+                    if (FacilitiesPageIdUpdate.length == 0) {
+
+                        toastr.error('Facilities name is empty!');
+
+                    }
+                    else if (nameUpdate.length == 0) {
+
+                        toastr.error('Facilities name is empty!');
+
+                    } else if (SubTitle == 0) {
+
+                        toastr.error('Facilities description is empty!');
+
+                    } else if (desUpdate == 0) {
+
+                        toastr.error('Facilities description is empty!');
+
+                    } else {
+                        $('#FacilitiesConfirmBtn').html(
+                            "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+                       
+
+                        axios.post('/FacilitiesUpdate', {
+                                id: idUpdate,
+                                FacilitiesPageIdUpdate: FacilitiesPageIdUpdate,
+                                name: nameUpdate,
+                                description: desUpdate,
+                                SubTitle: SubTitle,
+
+                            
+                        }).then(function(response) {
+
+                            $('#FacilitiesConfirmBtn').html("Update");
+
+                            if (response.status = 200) {
+
+                                if (response.data == 1) {
+                                    $('#updateFacilitiesModal').modal('hide');
+                                    toastr.success('Update Success.');
+                                    getFacilitiesData();
+
+                                } else {
+                                    $('#updateFacilitiesModal').modal('hide');
+                                    toastr.error('Update Failed');
+                                    getFacilitiesData();
+
+                                }
+                            } else {
+                                $('#updateFacilitiesModal').modal('hide');
+                                toastr.error('Something Went Wrong');
+                            }
+
+
+                        }).catch(function(error) {
+
+                            $('#updateFacilitiesModal').modal('hide');
+                            toastr.error('Something Went Wrong');
+
+                        });
+                    }
+                }
+
+
+
+
+
+
+
+// ---------------------
+// Image Gallery
+// ---------------------
+
+
+
+getHomeimageData();
+        
+
+        function getHomeimageData() {
+
+
+            axios.get('/getFacilitiesImageData')
+                .then(function(response) {
+                       
+                    if (response.status = 200) {
+
+                        $('#mainDivimage').removeClass('d-none');
+                        $('#loadDivimage').addClass('d-none');
+
+                        $('#imageDataTable').DataTable().destroy();
+                        $('#image_table').empty();
+                        var count = 1;
+                        var dataJSON = response.data;
+                       
+                        $.each(dataJSON, function(i, item) {
+                            $('<tr>').html(
+                                "<td>" + count++ + " </td>" +
+
+                                "<td><img width='200px' height='80' class='table-img' src="+dataJSON[i]
+                                .image + "> </td>" +
+
+                                 "<td class='text-center'><a class='imageDeleteIcon' data-id=" + dataJSON[i].id +
+                                " ><i class='fas fa-trash-alt'></i></a> </td>"
+                            ).appendTo('#image_table');
+                        });
+
+                        $(".imageDeleteIcon").click(function() {
+
+                            var id = $(this).data('id');
+                            $('#imageDeleteId').html(id);
+                            $('#deleteModalimage').modal('show');
+
+                        })
+
+                    } else {
+                        $('#wrongDivimage').removeClass('d-none');
+                        $('#loadDivimage').addClass('d-none');
+
+                    }
+                }).catch(function(error) {
+
+                    $('#wrongDivimage').removeClass('d-none');
+                    $('#loadDivimage').addClass('d-none');
+                });
+
+
+        }
+
+
+
+
+
+
+
+
+//  image delete modal yes button
+
+$('#confirmDeleteimage').click(function() {
+            var id = $('#imageDeleteId').html();
+            // var id = $(this).data('id');
+            DeleteDataimage(id);
+
+        })
+
+
+        //delete courses function
+
+        function DeleteDataimage(id) {
+            $('#confirmDeleteimage').html(
+                "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+            axios.post('/FacilitiesImageDelete', {
+                    id: id
+                })
+                .then(function(response) {
+                    console.log(response.data);
+                    $('#confirmDeleteimage').html("Yes");
+
+                    if (response.status == 200) {
+
+
+                        if (response.data == 1) {
+                            $('#deleteModalimage').modal('hide');
+                            toastr.error('Delete Success.');
+                            getHomeimageData();
+                        } else {
+                            $('#deleteModalimage').modal('hide');
+                            toastr.error('Delete Failed');
+                            getHomeimageData();
+                        }
+
+                    } else {
+                        $('#deleteModalimage').modal('hide');
+                        toastr.error('Something Went Wrong');
+                    }
+
+                }).catch(function(error) {
+
+                    $('#deleteModalimage').modal('hide');
+                    toastr.error('Something Went Wrong');
+
+                });
+
+        }
+
+
+
+
+
+// Material Select Initialization
+$(document).ready(function () {
+        $('.mdb-select3').material_select();
+        });
+
+
+
+ //add button modal show for add new entity
+
+        $('#addbtnimage').click(function() {
+            $('#addimageModal').modal('show');
+        });
+
+
+        //ResturantMenu Add modal save button
+
+        $('#imageAddConfirmBtn').click(function() {
+            var imageimg = $('#imageimg').prop('files')[0];
+            var pageName = $('#pageName').val();
+            imageAdd(imageimg,pageName);
+
+        })
+
+
+        axios.get('/getFacilitiesData')
+            .then(function(response) {
+                var dataJSON = response.data;
+                $('#pageName').empty();
+                $('#pageName').append(`<option disabled selected>Select Product Category</option>`);
+                $.each(dataJSON, function(i, item) {
+
+                    $('#pageName').append(`<option value="${dataJSON[i].id}"> ${dataJSON[i].page_title} </option>`);
+
+                });
+
+            }).catch(function(error) {
+
+                alert("There are no Category")
+
+            });
+
+
+
+        $('#imageimg').change(function() {
+            var reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+            reader.onload = function(event) {
+                var ImgSource = event.target.result;
+                $('#addimagepreviewimage').attr('src', ImgSource)
+            }
+        })
+
+        //ResturantMenu Add Method
+
+
+        function imageAdd(imageimg, pageName) {
+
+                $('#imageAddConfirmBtn').html(
+                    "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+                   
+                    my_data = [{
+                        pageName: pageName,
+                        
+                    }
+
+                ];
+                var formData = new FormData();
+                formData.append('data', JSON.stringify(my_data));
+                formData.append('photo', imageimg);
+
+                axios.post('/FacilitiesImageAdd',formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then(function(response) {
+                   
+                    $('#imageAddConfirmBtn').html("Save");
+
+                    if (response.status = 200) {
+                        if (response.data == 1) {
+                            $('#addimageModal').modal('hide');
+                            toastr.success('Add New Success .');
+                              getHomeimageData();
+                        } else {
+                            $('#addimageModal').modal('hide');
+                            toastr.error('Add New Failed');
+                              getHomeimageData();
+                        }
+                    } else {
+                        $('#addimageModal').modal('hide');
+                        toastr.error('Something Went Wrong');
+                    }
+
+
+                }).catch(function(error) {
+
+                    $('#addimageModal').modal('hide');
+                    toastr.error('Something Went Wrong');
+
+                });
+
+           
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+
+
+
+
+        @endsection

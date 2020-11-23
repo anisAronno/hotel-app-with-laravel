@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 use Illuminate\Http\Request;
 use App\contactModel;
+use App\FacilitiesModel;
 use App\OthersModel;
 use App\SocialModel;
 
@@ -12,9 +13,11 @@ class ContactController extends Controller
     public function contactIndex(){
         $othersData= json_decode(OthersModel::orderBy('id', 'desc')->get()->first());
         $socialData= json_decode(SocialModel::orderBy('id', 'desc')->get()->first());
+        $facilities= json_decode(FacilitiesModel::all());
         return view('client.Contact',[
             'othersData'=>$othersData,
-            'socialData'=>$socialData
+            'socialData'=>$socialData,
+            'facilities'=> $facilities
         ]);
     }
 

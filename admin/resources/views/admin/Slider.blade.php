@@ -345,7 +345,6 @@
                 ];
                 var formData = new FormData();
                 formData.append('data', JSON.stringify(my_data));
-                console.log(img);
                 formData.append('photo', img);
 
                 axios.post('/addslider', formData, {

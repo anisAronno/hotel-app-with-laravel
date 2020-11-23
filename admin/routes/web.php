@@ -95,13 +95,19 @@ Route::post('/ResturantMenuUpdate', 'ResturantController@ResturantMenuUpdate');
 
 //admin panel Facilities management 
 Route::get('/Facilities', 'AdminFacilitiesController@FacilitiesIndex');
+Route::get('/getFacilitiesData', 'AdminFacilitiesController@getFacilitiesData');
+Route::post('/FacilitiesAdd', 'AdminFacilitiesController@FacilitiesAdd');
+Route::post('/FacilitiesDelete', 'AdminFacilitiesController@FacilitiesDelete');
+Route::post('/FacilitiesEdit', 'AdminFacilitiesController@FacilitiesEdit');
+Route::post('/FacilitiesUpdate', 'AdminFacilitiesController@FacilitiesUpdate');
 
 
 
 
 
-
-
+Route::get('/getFacilitiesImageData', 'AdminFacilitiesController@getFacilitiesImageData');
+Route::post('/FacilitiesImageDelete', 'AdminFacilitiesController@FacilitiesImageDelete');
+Route::post('/FacilitiesImageAdd', 'AdminFacilitiesController@FacilitiesImageAdd');
 
 
 

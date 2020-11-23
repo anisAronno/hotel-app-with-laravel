@@ -13,24 +13,6 @@
 
 
 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
 
 @section('script')
@@ -330,9 +312,9 @@
                             $('<tr>').html(
                                 "<td>" + count++ + " </td>" +
 
-                                "<td>" + dataJSON[i].title + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].title + " </td>" +
 
-                                "<td>" + dataJSON[i].description + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].description + " </td>" +
 
                                 "<td><a class='SliderEditIcon' data-id=" + dataJSON[i].id +
                                 "><i class='fas fa-edit'></i></a> </td>" +
@@ -729,9 +711,9 @@
                             $('<tr>').html(
                                 "<td>" + count++ + " </td>" +
 
-                                "<td>" + dataJSON[i].exp_title + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].exp_title + " </td>" +
 
-                                "<td>" + dataJSON[i].exp_description + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].exp_description + " </td>" +
 
                                 "<td class='text-center'><a class='EXPEditIcon ' data-id=" + dataJSON[i].id +
                                 "><i class='fas fa-edit'></i></a> </td>" 
@@ -1060,7 +1042,7 @@ if (exp_title.length == 0) {
                             $('<tr>').html(
                                 "<td>" + count++ + " </td>" +
 
-                                "<td>" + dataJSON[i].name + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].name + " </td>" +
 
                                 "<td><img width='200px' height='80' class='table-img' src=" + dataJSON[i]
                                 .image + "> </td>" +
@@ -1068,7 +1050,7 @@ if (exp_title.length == 0) {
                                 "<td>" + dataJSON[i].date + " </td>" +
 
 
-                                "<td>" + dataJSON[i].description + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].description + " </td>" +
 
                                 "<td class='text-center'><a class='TestimonialEditIcon' data-id=" + dataJSON[i].id +
                                 "><i class='fas fa-edit'></i></a> </td>" +

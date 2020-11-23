@@ -165,7 +165,7 @@ getHomeimageData();
                             $('<tr>').html(
                                 "<td>" + count++ + " </td>" +
 
-                                "<td><img width='200px' height='80' class='table-img' src=" + dataJSON[i]
+                                "<td><img width='200px' height='80' class='table-img' src="+dataJSON[i]
                                 .image + "> </td>" +
 
                                  "<td class='text-center'><a class='imageDeleteIcon' data-id=" + dataJSON[i].id +
@@ -371,9 +371,9 @@ $('#confirmDeleteimage').click(function() {
                             $('<tr>').html(
                                 "<td>" + count++ + " </td>" +
 
-                                "<td>" + dataJSON[i].title + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].title + " </td>" +
 
-                                "<td>" + dataJSON[i].description + " </td>" +
+                                "<td class='text-break'>" + dataJSON[i].description + " </td>" +
 
                                 "<td>" + categoryName + " </td>" +
 

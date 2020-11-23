@@ -23,14 +23,12 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Facilities</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @php
-                            $facilityNames=['Transport','Gym','Travel Desk','Common Facilities']
-                            @endphp
-                            @for ($i = 0; $i < 4; $i++)
-                                <a class="dropdown-item"
-                                    href="{{ route('singleFacility', ['facilityId' => $i]) }}">{{ $facilityNames[$i] }}</a>
-                            @endfor
-
+                         @foreach ($facilities as $facility)
+                         <a class="dropdown-item"
+                         href="{{ route('singleFacility', ['facilityId' => $facility->id]) }}">{{ $facility->page_title }}</a>
+                         @endforeach
+                               
+                          
                         </div>
                     </li>
 

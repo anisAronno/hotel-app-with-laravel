@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\client;
 
+use App\FacilitiesModel;
 use App\OthersModel;
 use App\SocialModel;
 use Illuminate\Http\Request;
@@ -20,13 +21,15 @@ class resturantController extends Controller
         $ResturantImage= json_decode(ResturantImageModel::orderBy('id', 'desc')->get());
         $ResturantMenu= json_decode(ResturantMenuModel::orderBy('id', 'desc')->get());
         $ResturantAbout= json_decode(ResturantModel::orderBy('id', 'desc')->get()->first());
+        $facilities= json_decode(FacilitiesModel::all());
         return view('client.resturant',[
             'othersData'=>$othersData,
             'socialData'=>$socialData,
             'HomeTestimonialDatas'=>$HomeTestimonialData,
             'ResturantImages'=>$ResturantImage,
             'ResturantMenus'=>$ResturantMenu,
-            'ResturantAbout'=>$ResturantAbout
+            'ResturantAbout'=>$ResturantAbout,
+            'facilities'=> $facilities
         ]);
     }
 }

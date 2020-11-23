@@ -233,6 +233,22 @@ class ResturantController extends Controller
 
 
 
+ function ResturantMenuUpdate(Request $request)
+    {
+
+        $id = $request->input("id");
+        $ResturantMenu_title = $request->input("ResturantMenu_title");
+        $ResturantMenu_description = $request->input("ResturantMenu_description");
+        $ResturantMenu_category = $request->input("ResturantMenu_category");
+        
+            $result = ResturantMenuModel::where('id', '=', $id)->update(['title' => $ResturantMenu_title, 'description' => $ResturantMenu_description,'category' => $ResturantMenu_category ]);
+            if ($result == true) {
+                return 1;
+            } else {
+                return 0;
+            }
+        
+    }
 
 
 

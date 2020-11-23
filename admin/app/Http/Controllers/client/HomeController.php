@@ -4,6 +4,7 @@ namespace App\Http\Controllers\client;
 use Illuminate\Http\Request;
 use App\bookingModel;
 use App\ExtraServicesModel;
+use App\FacilitiesModel;
 use App\HomeAboutSecTionModel;
 use App\homeExclusiveFeaturesModel;
 use App\homeSpecialFeaturesModel;
@@ -34,17 +35,18 @@ class HomeController extends Controller
         $HomeSFSectionData= json_decode(homeSpecialFeaturesModel::orderBy('id', 'desc')->limit(3)->get());
         $homeEXPPageData= json_decode(homeExclusiveFeaturesModel::orderBy('id', 'asc')->limit(4)->get());
         $HomeTestimonialData= json_decode(TestimonialModel::orderBy('id', 'desc')->limit(3)->get());
-        return View('client.index', [
-            'othersData' => $othersData,
-            'sliders' => $sliders,
-            'socialData' => $socialData,
-            'aboutESPageDatas'=>$aboutESPageData,
-            'HomeAboutSectionData'=>$HomeAboutSectionData,
-            'HomeSFSectionDatas'=>$HomeSFSectionData,
-            'homeEXPPageData'=>$homeEXPPageData,
-            'HomeTestimonialDatas'=>$HomeTestimonialData
-            
-        ]);
+        $facilities= json_decode(FacilitiesModel::all());
+        
+        return View('client.index')
+        ->with('othersData' ,$othersData)
+        ->with('sliders' ,$sliders)
+        ->with('socialData' ,$socialData)
+        ->with('aboutESPageDatas',$aboutESPageData)
+        ->with('HomeAboutSectionData',$HomeAboutSectionData)
+        ->with('HomeSFSectionDatas',$HomeSFSectionData)
+        ->with('homeEXPPageData',$homeEXPPageData)
+        ->with('HomeTestimonialDatas',$HomeTestimonialData)
+        ->with('facilities', $facilities);
     }
 
     function bookingSend(Request $request){
