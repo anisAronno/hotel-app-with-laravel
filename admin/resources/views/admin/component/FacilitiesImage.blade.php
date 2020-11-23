@@ -5,7 +5,7 @@
         <div id="mainDivimage" class="container-fluid d-none">
             <div class="row">
                 <div class="col-md-12 p-2">
-                    <h1 class="text-center">Resturant Image Gallery</h1>
+                    <h1 class="text-center">Facilities Image Gallery</h1>
                     <button id="addbtnimage" class="btn btn-sm btn-danger my-3">Add New</button>
                     <table id="imageDataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>

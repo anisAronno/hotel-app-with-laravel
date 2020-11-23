@@ -62,10 +62,10 @@
                             <div class="row">
                                     <input id="FacilitiesPage" type="text" class="form-control mb-3"
                                     placeholder="Facilities Page Name">
-                                    <input id="FacilitiesName" type="text" class="form-control mb-3"
-                                    placeholder="Facilities Title">
                                     <textarea name="" id="FacilitiesSubTitle" cols="30" rows="5" class="form-control mb-3"
                                     placeholder="Facilities Page Slogan"></textarea>
+                                    <input id="FacilitiesName" type="text" class="form-control mb-3"
+                                    placeholder="Facilities Title">
                                     <textarea name="" id="FacilitiesDes" cols="30" rows="5" class="form-control mb-3"
                                     placeholder="Facilities Description"></textarea>
                              
@@ -125,11 +125,11 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <input id="FacilitiesPageIdUpdate" type="text" id="" class="form-control mb-3"
-                                        placeholder="Facilities Page Name">
+                                    placeholder="Facilities Page Name"> 
+                                <textarea name="" id="FacilitiesSubTitleIdUpdate" cols="30" rows="5"
+                                class="form-control mb-3" placeholder="Facilities Sub Title"></textarea>
                                     <input id="FacilitiesNameIdUpdate" type="text" id="" class="form-control mb-3"
-                                        placeholder="Facilities Name">
-                                    <textarea name="" id="FacilitiesSubTitleIdUpdate" cols="30" rows="5"
-                                        class="form-control mb-3" placeholder="Facilities Sub Title"></textarea>
+                                    placeholder="Facilities Name">
                                     <textarea name="" id="FacilitiesDesIdUpdate" cols="30" rows="5"
                                         class="form-control mb-3" placeholder="Facilities Description"></textarea>
                                 </div>
