@@ -250,6 +250,7 @@
 
                             if (response.status == 200) {
 
+
                                 $('#loadDivFacilities').addClass('d-none');
                                 $('#FacilitiesEditForm').removeClass('d-none');
                                 var jsonData = response.data;
@@ -283,8 +284,7 @@
                 //Facilities update modal save button
 
                 $('#FacilitiesConfirmBtn').click(function() {
-
-
+                    
                     var idUpdate = $('#FacilitiesEditId').html();
                     var FacilitiesPageIdUpdate = $('#FacilitiesPageIdUpdate').val();
                     var nameUpdate = $('#FacilitiesNameIdUpdate').val();

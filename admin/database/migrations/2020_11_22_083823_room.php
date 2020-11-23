@@ -15,8 +15,9 @@ class Room extends Migration
     {
         Schema::create('Room', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
             $table->integer('price')->nullable();
-            $table->integer('lrngth')->nullable();
+            $table->integer('length')->nullable();
             $table->string('view')->nullable();
             $table->string('adult')->nullable();
             $table->string('children')->nullable();
