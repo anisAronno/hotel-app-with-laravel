@@ -1,5 +1,11 @@
 @extends('client.layout.app')
-@section('broadcramb','Gym')
+@section('broadcramb')
+@foreach ($facilitiesData as $facilitiesDat)
+@if ($facilitiesDat)
+    {{$facilitiesDat->page_title}}
+@endif
+@endforeach
+@endsection
 @section('content')
        <!-- Hero Section Begin -->
        @include('client.component.hero')

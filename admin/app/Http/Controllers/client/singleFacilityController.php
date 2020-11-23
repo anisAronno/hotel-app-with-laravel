@@ -20,20 +20,14 @@ class singleFacilityController extends Controller
         
 
         $facilitiesData=  DB::table('facilities')
-        ->select('facilities.id','facilities.title','facilities.description','facilities.sub_title','facilities_image.image')
+        ->select('facilities.id','facilities.title','facilities.description','facilities.sub_title','facilities_image.image','facilities.page_title')
         ->leftjoin('facilities_image','facilities_image.id','=','facilities.image_id')
         ->where('facilities.id','=',$facilityId)
         ->get();
 
-                            $sql="SELECT 
-                                    *
-                                    FROM
-                                    facilities
-                                        LEFT JOIN
-                                    facilities_image ON facilities.id = facilities_image.page_name
-                                    where facilities.id =$facilityId";
+        $sql="SELECT *FROM facilities LEFT JOIN facilities_image ON facilities.id = facilities_image.page_name
+        where facilities.id =$facilityId";
         $facilitiesDataImages=DB::select($sql);
-        
         
         
             return view('client.gym-facility',[
@@ -42,8 +36,6 @@ class singleFacilityController extends Controller
                 'facilities'=> $facilities,
                 'facilitiesData'=> $facilitiesData,
                 'facilitiesDataImages'=> $facilitiesDataImages
-
-               
             ]);
         
 
