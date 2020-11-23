@@ -18,6 +18,9 @@ class Room extends Migration
             $table->integer('price')->nullable();
             $table->integer('lrngth')->nullable();
             $table->string('view')->nullable();
+            $table->string('adult')->nullable();
+            $table->string('children')->nullable();
+            $table->string('bed')->nullable();
         });
     }
 
