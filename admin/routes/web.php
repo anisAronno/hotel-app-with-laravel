@@ -202,6 +202,13 @@ Route::post('/AboutESUpdate', 'AboutController@AboutESUpdate');
 
 
 
+Route::get('/admin/rooms','RoomController@index')->name('room.Index');
+Route::get('/admin/rooms/get','RoomController@get')->name('room.get');
+Route::post('/storeimgae','RoomController@storeimage')->name('room.storeImage');
+
+
+
+
 
 
 // // Admin Photo Gallery
