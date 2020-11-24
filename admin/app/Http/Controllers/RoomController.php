@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\RoomImageModel;
 use App\RoomModel;
 use Illuminate\Http\Request;
 
@@ -111,6 +112,60 @@ class RoomController extends Controller
 
 
 
+        public function getRoomImageData()
+        {
+
+            $results = json_decode(RoomImageModel::orderBy('id', 'desc')->get());
+           
+            return $results;
+           
+        }
+    
+    
+        function RoomImageDelete(Request $req)
+        {
+            $id = $req->input('id');
+            $result = RoomImageModel::where('id', '=', $id)->delete();
+            if ($result == true) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    
+    
+    
+    
+        function RoomImageAdd(Request $req)
+        {
+           
+            $data = json_decode($_POST['data']);
+            $RoompageName = $data['0']->RoompageName;
+            $fileName=$req->file('photo')->getClientOriginalName();
+            $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
+            $imageRealPath=asset('images')."/".$fileName;
+          
+           
+                try {
+                    $result = RoomImageModel::insert([
+                        
+                        'images' => $imageRealPath,
+                        'room_id' => $RoompageName
+                        
+                    ]);
+                } catch (\Throwable $th) {
+                  return response()->json(array('error'=>$th));
+                }
+    
+           
+            if ($result == true) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    
+    
 
 
 

@@ -3,6 +3,11 @@
 @section('content')
 
     @include('admin.component.RoomSingle')
+    @include('admin.component.RoomImage')
+
+
+
+@endsection
 
 @section('script')
 
@@ -282,119 +287,336 @@
 
 
 
-                // update modal save button
+        // update modal save button
 
-                $('#RoomConfirmBtn').click(function() {
-                    
-                    var idUpdate = $('#RoomEditId').html();
-                    var RoomTitleIdUpdate = $('#RoomTitleIdUpdate').val();
-                    var RoomPriceIdUpdate = $('#RoomPriceIdUpdate').val();
-                    var RoomLenghtIdUpdate = $('#RoomLenghtIdUpdate').val();
-                    var RoomViewIdUpdate = $('#RoomViewIdUpdate').val();
-                    var RoomAdultsIdUpdate = $('#RoomAdultsIdUpdate').val();
-                    var RoomChildrenIdUpdate = $('#RoomChildrenIdUpdate').val();
-                    var RoomBedIdUpdate = $('#RoomBedIdUpdate').val();
+        $('#RoomConfirmBtn').click(function() {
 
-
-                    RoomUpdate(idUpdate, RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate);
-
-                })
+            var idUpdate = $('#RoomEditId').html();
+            var RoomTitleIdUpdate = $('#RoomTitleIdUpdate').val();
+            var RoomPriceIdUpdate = $('#RoomPriceIdUpdate').val();
+            var RoomLenghtIdUpdate = $('#RoomLenghtIdUpdate').val();
+            var RoomViewIdUpdate = $('#RoomViewIdUpdate').val();
+            var RoomAdultsIdUpdate = $('#RoomAdultsIdUpdate').val();
+            var RoomChildrenIdUpdate = $('#RoomChildrenIdUpdate').val();
+            var RoomBedIdUpdate = $('#RoomBedIdUpdate').val();
 
 
+            RoomUpdate(idUpdate, RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate,
+                RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate);
 
-
-
-                //update project data using modal
-
-                function RoomUpdate(idUpdate, RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate, RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate) {
+        })
 
 
 
-                    if (RoomTitleIdUpdate.length == 0) {
 
-                        toastr.error('Room name is empty!');
 
+        //update project data using modal
+
+        function RoomUpdate(idUpdate, RoomTitleIdUpdate, RoomPriceIdUpdate, RoomLenghtIdUpdate, RoomViewIdUpdate,
+            RoomAdultsIdUpdate, RoomChildrenIdUpdate, RoomBedIdUpdate) {
+
+
+
+            if (RoomTitleIdUpdate.length == 0) {
+
+                toastr.error('Room name is empty!');
+
+            } else if (RoomPriceIdUpdate.length == 0) {
+
+                toastr.error('Room name is empty!');
+
+            } else if (RoomLenghtIdUpdate.length == 0) {
+
+                toastr.error('Room description is empty!');
+
+            } else if (RoomViewIdUpdate.length == 0) {
+
+                toastr.error('Room description is empty!');
+
+            } else if (RoomAdultsIdUpdate.length == 0) {
+
+                toastr.error('Room description is empty!');
+
+            } else if (RoomChildrenIdUpdate.length == 0) {
+
+                toastr.error('Room description is empty!');
+
+            } else if (RoomBedIdUpdate.length == 0) {
+
+                toastr.error('Room description is empty!');
+
+            } else {
+                $('#RoomConfirmBtn').html(
+                    "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+
+
+                axios.post('/RoomUpdate', {
+                    id: idUpdate,
+                    RoomTitleIdUpdate: RoomTitleIdUpdate,
+                    RoomPriceIdUpdate: RoomPriceIdUpdate,
+                    RoomLenghtIdUpdate: RoomLenghtIdUpdate,
+                    RoomViewIdUpdate: RoomViewIdUpdate,
+                    RoomAdultsIdUpdate: RoomAdultsIdUpdate,
+                    RoomChildrenIdUpdate: RoomChildrenIdUpdate,
+                    RoomBedIdUpdate: RoomBedIdUpdate,
+
+
+                }).then(function(response) {
+
+                    $('#RoomConfirmBtn').html("Update");
+
+                    if (response.status = 200) {
+
+                        if (response.data == 1) {
+                            $('#updateRoomModal').modal('hide');
+                            toastr.success('Update Success.');
+                            getRoomData();
+
+                        } else {
+                            $('#updateRoomModal').modal('hide');
+                            toastr.error('Update Failed');
+                            getRoomData();
+
+                        }
+                    } else {
+                        $('#updateRoomModal').modal('hide');
+                        toastr.error('Something Went Wrong');
                     }
-                    else if (RoomPriceIdUpdate.length == 0) {
 
-                        toastr.error('Room name is empty!');
 
-                    } else if (RoomLenghtIdUpdate.length == 0) {
+                }).catch(function(error) {
 
-                        toastr.error('Room description is empty!');
+                    $('#updateRoomModal').modal('hide');
+                    toastr.error('Something Went Wrong');
 
-                    } else if (RoomViewIdUpdate.length == 0) {
+                });
+            }
+        }
 
-                        toastr.error('Room description is empty!');
 
-                    }else if (RoomAdultsIdUpdate.length == 0) {
 
-                        toastr.error('Room description is empty!');
 
-                    }else if (RoomChildrenIdUpdate.length == 0) {
+        getRoomimageData();
 
-                        toastr.error('Room description is empty!');
 
-                    }else if (RoomBedIdUpdate.length == 0) {
+        function getRoomimageData() {
 
-                        toastr.error('Room description is empty!');
+
+            axios.get('/getRoomImageData')
+                .then(function(response) {
+
+                    if (response.status = 200) {
+
+                        $('#mainDivimage').removeClass('d-none');
+                        $('#loadDivimage').addClass('d-none');
+
+                        $('#imageDataTable').DataTable().destroy();
+                        $('#image_table').empty();
+                        var count = 1;
+                        var dataJSON = response.data;
+
+                        $.each(dataJSON, function(i, item) {
+                            $('<tr>').html(
+                                "<td>" + count++ + " </td>" +
+
+                                "<td><img width='200px' height='80' class='table-img' src=" + dataJSON[i]
+                                .images + "> </td>" +
+
+                                "<td class='text-center'><a class='imageDeleteIcon' data-id=" + dataJSON[i]
+                                .id +
+                                " ><i class='fas fa-trash-alt'></i></a> </td>"
+                            ).appendTo('#image_table');
+                        });
+
+                        $(".imageDeleteIcon").click(function() {
+
+                            var id = $(this).data('id');
+                            $('#imageDeleteId').html(id);
+                            $('#deleteModalimage').modal('show');
+
+                        })
 
                     } else {
-                        $('#RoomConfirmBtn').html(
-                            "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+                        $('#wrongDivimage').removeClass('d-none');
+                        $('#loadDivimage').addClass('d-none');
 
-                       
-
-                        axios.post('/RoomUpdate', {
-                                id: idUpdate,
-                                RoomTitleIdUpdate: RoomTitleIdUpdate,
-                                RoomPriceIdUpdate: RoomPriceIdUpdate,
-                                RoomLenghtIdUpdate: RoomLenghtIdUpdate,
-                                RoomViewIdUpdate: RoomViewIdUpdate,
-                                RoomAdultsIdUpdate: RoomAdultsIdUpdate,
-                                RoomChildrenIdUpdate: RoomChildrenIdUpdate,
-                                RoomBedIdUpdate: RoomBedIdUpdate,
-
-                            
-                        }).then(function(response) {
-
-                            $('#RoomConfirmBtn').html("Update");
-
-                            if (response.status = 200) {
-
-                                if (response.data == 1) {
-                                    $('#updateRoomModal').modal('hide');
-                                    toastr.success('Update Success.');
-                                    getRoomData();
-
-                                } else {
-                                    $('#updateRoomModal').modal('hide');
-                                    toastr.error('Update Failed');
-                                    getRoomData();
-
-                                }
-                            } else {
-                                $('#updateRoomModal').modal('hide');
-                                toastr.error('Something Went Wrong');
-                            }
-
-
-                        }).catch(function(error) {
-
-                            $('#updateRoomModal').modal('hide');
-                            toastr.error('Something Went Wrong');
-
-                        });
                     }
+                }).catch(function(error) {
+
+                    $('#wrongDivimage').removeClass('d-none');
+                    $('#loadDivimage').addClass('d-none');
+                });
+
+
+        }
+
+
+
+
+
+        //  image delete modal yes button
+
+        $('#confirmDeleteimage').click(function() {
+            var id = $('#imageDeleteId').html();
+            // var id = $(this).data('id');
+            DeleteDataimage(id);
+
+        })
+
+
+        //delete courses function
+
+        function DeleteDataimage(id) {
+            $('#confirmDeleteimage').html(
+                "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+            axios.post('/RoomImageDelete', {
+                    id: id
+                })
+                .then(function(response) {
+                    console.log(response.data);
+                    $('#confirmDeleteimage').html("Yes");
+
+                    if (response.status == 200) {
+
+
+                        if (response.data == 1) {
+                            $('#deleteModalimage').modal('hide');
+                            toastr.error('Delete Success.');
+                            getRoomimageData();
+                        } else {
+                            $('#deleteModalimage').modal('hide');
+                            toastr.error('Delete Failed');
+                            getRoomimageData();
+                        }
+
+                    } else {
+                        $('#deleteModalimage').modal('hide');
+                        toastr.error('Something Went Wrong');
+                    }
+
+                }).catch(function(error) {
+
+                    $('#deleteModalimage').modal('hide');
+                    toastr.error('Something Went Wrong');
+
+                });
+
+        }
+
+
+
+
+
+
+        // Material Select Initialization
+        $(document).ready(function() {
+            $('.mdb-select4').material_select();
+        });
+
+
+
+        //add button modal show for add new entity
+
+        $('#addRoombtnimage').click(function() {
+            $('#addimageModal').modal('show');
+        });
+
+
+        //ResturantMenu Add modal save button
+
+        $('#RoomImageAddConfirmBtn').click(function() {
+            var imageimgRoom = $('#imageimgRoom').prop('files')[0];
+            var RoompageName = $('#RoompageName').val();
+            imageAdd(imageimgRoom, RoompageName);
+
+        })
+
+
+        axios.get('/getRoomData')
+            .then(function(response) {
+                var dataJSON = response.data;
+                $('#RoompageName').empty();
+                $('#RoompageName').append(`<option disabled selected>Select Product Category</option>`);
+                $.each(dataJSON, function(i, item) {
+
+                    $('#RoompageName').append(
+                        `<option value="${dataJSON[i].id}"> ${dataJSON[i].title} </option>`);
+
+                });
+
+            }).catch(function(error) {
+
+                alert("There are no Category")
+
+            });
+
+
+
+        $('#imageimgRoom').change(function() {
+            var reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+            reader.onload = function(event) {
+                var ImgSource = event.target.result;
+                $('#addimagepreviewimage').attr('src', ImgSource)
+            }
+        })
+
+        //ResturantMenu Add Method
+
+
+        function imageAdd(imageimgRoom, RoompageName) {
+
+            $('#RoomImageAddConfirmBtn').html(
+                "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+            my_data = [{
+                    RoompageName: RoompageName,
+
+                }
+
+            ];
+            var formData = new FormData();
+            formData.append('data', JSON.stringify(my_data));
+            formData.append('photo', imageimgRoom);
+
+            axios.post('/RoomImageAdd', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then(function(response) {
+
+                $('#RoomImageAddConfirmBtn').html("Save");
+
+                if (response.status = 200) {
+                    if (response.data == 1) {
+                        $('#addimageModal').modal('hide');
+                        toastr.success('Add New Success .');
+                        getRoomimageData();
+                    } else {
+                        $('#addimageModal').modal('hide');
+                        toastr.error('Add New Failed');
+                        getRoomimageData();
+                    }
+                } else {
+                    $('#addimageModal').modal('hide');
+                    toastr.error('Something Went Wrong');
                 }
 
 
+            }).catch(function(error) {
+
+                $('#addimageModal').modal('hide');
+                toastr.error('Something Went Wrong');
+
+            });
 
 
 
-
+        }
 
     </script>
 
-@endsection
+
 @endsection

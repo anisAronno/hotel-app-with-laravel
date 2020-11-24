@@ -114,9 +114,20 @@ Route::post('/FacilitiesImageAdd', 'AdminFacilitiesController@FacilitiesImageAdd
 
 
 
+//admin panel Room management 
+
+Route::get('/admin/rooms','RoomController@index')->name('room.Index');
+Route::get('/getRoomData','RoomController@getRoomData');
+Route::post('/RoomAdd','RoomController@RoomAdd');
+Route::post('/RoomDelete','RoomController@RoomDelete');
+Route::post('/RoomEdit','RoomController@RoomEdit');
+Route::post('/RoomUpdate','RoomController@RoomUpdate');
 
 
 
+Route::get('/getRoomImageData', 'RoomController@getRoomImageData');
+Route::post('/RoomImageDelete', 'RoomController@RoomImageDelete');
+Route::post('/RoomImageAdd', 'RoomController@RoomImageAdd');
 
 
 
@@ -200,14 +211,6 @@ Route::post('/AboutESDetails', 'AboutController@AboutDetailEdit');
 Route::post('/AboutESUpdate', 'AboutController@AboutESUpdate');
 
 
-
-
-Route::get('/admin/rooms','RoomController@index')->name('room.Index');
-Route::get('/getRoomData','RoomController@getRoomData');
-Route::post('/RoomAdd','RoomController@RoomAdd');
-Route::post('/RoomDelete','RoomController@RoomDelete');
-Route::post('/RoomEdit','RoomController@RoomEdit');
-Route::post('/RoomUpdate','RoomController@RoomUpdate');
 
 
 
