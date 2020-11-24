@@ -260,7 +260,7 @@
                         class="text-decoration-none font-weight-bold">Lake view , Price</a></span></p>
                         
                         <p>
-                            <span class="room-item-price">{{$item->price}} &#2547; </span>
+                            <span class="room-item-price"> &#2547; {{$item->price}}  </span>
                         </p>
                     </div>
                 </div>
