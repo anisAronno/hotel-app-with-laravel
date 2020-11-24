@@ -20,7 +20,7 @@
                 </div>
                 <div class="room-config-item p-4">
                     <p><i class="fas fa-compress mr-2 "></i>Area </p>
-                    <p>{{$roomdetails->length}}</p>
+                    <p>{{$roomdetails->length}} m <sup>2</sup></p>
                 </div>
                 <div class="room-config-item p-4">
                     <p><i class="fas fa-procedures mr-2 "></i>Beds</p>
