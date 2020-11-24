@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\RoomFacilityModel;
 use App\RoomImageModel;
 use App\RoomModel;
+use Illuminate\Support\Facades\DB;
 
 class singleRoomController extends Controller
 {
@@ -29,6 +30,27 @@ class singleRoomController extends Controller
         ->get();
 
 
+        $sql="SELECT 
+        room.id,
+        room.title,
+        room.price,
+        room.length,
+        roomimages.images,
+        roomimages.room_id
+        FROM
+            room
+                LEFT JOIN
+            (SELECT 
+                *
+            FROM
+                roomimages
+            ) as roomImages ON roomimages.room_id = room.id group by room.title";
+
+    $data=DB::select($sql);
+    // dd($data);
+
+
+
         $roomsfacilityroom=RoomFacilityModel::leftjoin('room','roomfacilities.room_id','=','room.id')
         ->where('room_id','=',$roomId)
         ->where('category_id','=',2)
@@ -44,7 +66,8 @@ class singleRoomController extends Controller
                 'roomsImages'=>$roomsImages,
                 'roomsfacilitybathroom'=>$roomsfacilitybathroom,
                 'roomsfacilityroom'=>$roomsfacilityroom,
-                'facilities'=> $facilities
+                'facilities'=> $facilities,
+                'data'=>$data
             ]);
 
     }

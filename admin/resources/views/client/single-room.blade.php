@@ -235,312 +235,41 @@
 
 
         <section class="room-section text-center mt-5">
+
             <h1 data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">Others Room</h1>
             <hr class="w-25">
-            <!-- <div class="room d-flex owl-carousel my-5 " data-aos="fade-up" data-aos-duration="1000"
-                data-aos-easing="ease-in-out">
-
-                <div class="room-item" style="background-image: url('{{asset('client/images')}}/33.jpg'); ">
-                    <div class="room-item-content text-left pl-4">
-                        <a href="" class="text-decoration-none">
-                            <h3>Premium Room 2</h3>
-
-                        </a>
-                        <p><span>25m<sup>2</sup></span><span class="ml-2"><a href="#"
-                                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a
-                                    href="#" class="text-decoration-none font-weight-bold">Lake view</a></span></p>
-                        <p class="font-weight-bold">Price</p>
-                        <p>
-                            <span class="room-item-price">$94.6 <span>/</span></span>
-                            <span class="font-weight-bold">Night</span>
-                            <span class="room-review-icon">
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                                <a href="#" class="text-decoration-none font-weight-bold">See Detail</a></span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="room-item" style="background-image: url('{{asset('client/images')}}/33.jpg'); ">
-                    <div class="room-item-content text-left pl-4">
-                        <a href="" class="text-decoration-none">
-                            <h3>Premium Room 2</h3>
-                        </a>
-                        <p><span>25m<sup>2</sup></span><span class="ml-2"><a href="#"
-                                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a
-                                    href="#" class="text-decoration-none font-weight-bold">Lake view</a></span></p>
-                        <p class="font-weight-bold">Price</p>
-                        <p>
-                            <span class="room-item-price">$94.6 <span>/</span></span>
-                            <span class="font-weight-bold">Night</span>
-                            <span class="room-review-icon">
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                                <a href="#" class="text-decoration-none font-weight-bold">See Detail</a></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="room-item" style="background-image: url('{{asset('client/images')}}/33.jpg'); ">
-                    <div class="room-item-content text-left pl-4">
-                        <a href="" class="text-decoration-none">
-                            <h3>Premium Room 2</h3>
-                        </a>
-                        <p><span>25m<sup>2</sup></span><span class="ml-2"><a href="#"
-                                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a
-                                    href="#" class="text-decoration-none font-weight-bold">Lake view</a></span></p>
-                        <p class="font-weight-bold">Price</p>
-                        <p>
-                            <span class="room-item-price">$94.6 <span>/</span></span>
-                            <span class="font-weight-bold">Night</span>
-                            <span class="room-review-icon">
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                                <a href="#" class="text-decoration-none font-weight-bold">See Detail</a></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="room-item" style="background-image: url('{{asset('client/images')}}/33.jpg'); ">
-                    <div class="room-item-content text-left pl-4">
-                        <a href="" class="text-decoration-none">
-                            <h3>Premium Room 2</h3>
-                        </a>
-                        <p><span>25m<sup>2</sup></span><span class="ml-2"><a href="#"
-                                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a
-                                    href="#" class="text-decoration-none font-weight-bold">Lake view</a></span></p>
-                        <p class="font-weight-bold">Price</p>
-                        <p>
-                            <span class="room-item-price">$94.6 <span>/</span></span>
-                            <span class="font-weight-bold">Night</span>
-                            <span class="room-review-icon">
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                                <a href="#" class="text-decoration-none font-weight-bold">See Detail</a></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="room-item" style="background-image: url('{{asset('client/images')}}/33.jpg'); ">
-                    <div class="room-item-content text-left pl-4">
-                        <a href="" class="text-decoration-none">
-                            <h3>Premium Room 2</h3>
-                        </a>
-                        <p><span>25m<sup>2</sup></span><span class="ml-2"><a href="#"
-                                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a
-                                    href="#" class="text-decoration-none font-weight-bold">Lake view</a></span></p>
-                        <p class="font-weight-bold">Price</p>
-                        <p>
-                            <span class="room-item-price">$94.6 <span>/</span></span>
-                            <span class="font-weight-bold">Night</span>
-                            <span class="room-review-icon">
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                                <a href="#" class="text-decoration-none font-weight-bold">See Detail</a></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="room-item" style="background-image: url('{{asset('client/images')}}/33.jpg'); ">
-                    <div class="room-item-content text-left pl-4">
-                        <a href="" class="text-decoration-none">
-                            <h3>Premium Room 2</h3>
-                        </a>
-                        <p><span>25m<sup>2</sup></span><span class="ml-2"><a href="#"
-                                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a
-                                    href="#" class="text-decoration-none font-weight-bold">Lake view</a></span></p>
-                        <p class="font-weight-bold">Price</p>
-                        <p>
-                            <span class="room-item-price">$94.6 <span>/</span></span>
-                            <span class="font-weight-bold">Night</span>
-                            <span class="room-review-icon">
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                                <a href="#" class="text-decoration-none font-weight-bold">See Detail</a></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="room-item" style="background-image: url('{{asset('client/images')}}/33.jpg'); ">
-                    <div class="room-item-content text-left pl-4">
-                        <a href="" class="text-decoration-none">
-                            <h3>Premium Room 2</h3>
-                        </a>
-                        <p><span>25m<sup>2</sup></span><span class="ml-2"><a href="#"
-                                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a
-                                    href="#" class="text-decoration-none font-weight-bold">Lake view</a></span></p>
-                        <p class="font-weight-bold">Price</p>
-                        <p>
-                            <span class="room-item-price">$94.6 <span>/</span></span>
-                            <span class="font-weight-bold">Night</span>
-                            <span class="room-review-icon">
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                                <a href="#" class="text-decoration-none font-weight-bold">See Detail</a></span>
-                        </p>
-                    </div>
-                </div>
-
-
-
-            </div> -->
-
+            
 
 
             <div class="room d-flex owl-carousel my-5 " data-aos="fade-up" data-aos-duration="1000"
             data-aos-easing="ease-in-out">
 
-            <div class="room-item" style="background-image: url('{{asset('client/images')}}/room-8-500x575.jpg'); ">
-              <div class="room-item-content text-center pl-4">
-                <a href=""  >
-                 <h3> Single Room</h3>
-                </a>
-                <p><span>10m<sup>2</sup></span><span class="ml-2"><a href="#"
-                      class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a href="#"
-                      class="text-decoration-none font-weight-bold">Lake view , Price</a></span></p>
-                <!-- <p class="font-weight-bold">Price</p> -->
-                <p>
-                  <span class="room-item-price">1,270&#2547; </span>
-                  <!-- <span class="font-weight-bold">Night</span>
-                  <span class="room-review-icon">
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </span> -->
-                  <!-- <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                    <a href="deluxe-single-room.html" class="text-decoration-none font-weight-bold">See Detail</a></span> -->
-                </p>
-              </div>
-            </div>
 
-            <div class="room-item" style="background-image: url('{{asset('client/images')}}/236452137.png'); ">
-              <div class="room-item-content text-center pl-4">
-                <a href="" class="text-decoration-none">
-                  <h3>Double Room</h3>
+
+
+            @foreach ($data as $item)
+                
+            
+        <div class="room-item" style="background-image: url('{{$item->images}}'); ">
+                <div class="room-item-content text-center pl-4">
+                <a href=""  >
+                <h3> {{$item->title}}</h3>
                 </a>
-                <p><span>15m<sup>2</sup></span><span class="ml-2"><a href="#"
-                      class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a href="#"
-                      class="text-decoration-none font-weight-bold">Lake view, Price</a></span></p>
-                <!-- <p class="font-weight-bold">Price</p> -->
-                <p>
-                  <span class="room-item-price">1,694&#2547;</span>
-                  <!-- <span class="font-weight-bold">Night</span>
-                  <span class="room-review-icon">
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                    <a href="deluxe-double-room.html" class="text-decoration-none font-weight-bold">See Detail</a></span> -->
-                </p>
-              </div>
-            </div>
-            <div class="room-item" style="background-image: url('{{asset('client/images')}}/family-room.png'); ">
-              <div class="room-item-content text-center pl-4">
-                <a href="" class="text-decoration-none">
-                  <h3> Twin Room</h3>
-                </a>
-                <p><span>18m<sup>2</sup></span><span class="ml-2"><a href="#"
-                      class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a href="#"
-                      class="text-decoration-none font-weight-bold">Lake view, Price</a></span></p>
-                <!-- <p class="font-weight-bold">Price</p> -->
-                <p>
-                  <span class="room-item-price"> 1,524&#2547;  </span>
-                  <!-- <span class="font-weight-bold">Night</span>
-                  <span class="room-review-icon">
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                    <a href="deluxe-twin-room.html" class="text-decoration-none font-weight-bold">See Detail</a></span> -->
-                </p>
-              </div>
-            </div>
-            <div class="room-item" style="background-image: url('{{asset('client/images')}}/e-room.jpg'); ">
-              <div class="room-item-content text-center pl-4">
-                <a href="" class="text-decoration-none">
-                  <h3>Executive Suite</h3>
-                </a>
-                <p><span>19m<sup>2</sup></span><span class="ml-2"><a href="#"
-                      class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a href="#"
-                      class="text-decoration-none font-weight-bold">Lake view,  Price</a></span></p>
-                <!-- <p class="font-weight-bold">Price</p> -->
-                <p>
-                  <span class="room-item-price"> 3,811 &#2547; </span>
-                  <!-- <span class="font-weight-bold">Night</span> -->
-                  <!-- <span class="room-review-icon">
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                    <a href="executive-suite.html" class="text-decoration-none font-weight-bold">See Detail</a></span> -->
-                </p>
-              </div>
-            </div>
-            <div class="room-item" style="background-image: url('{{asset('client/images')}}/family.png'); ">
-              <div class="room-item-content text-center pl-4">
-                <a href="" class="text-decoration-none">
-                  <h3>Family Room</h3>
-                </a>
-                <p><span>20m<sup>2</sup></span><span class="ml-2"><a href="#"
-                      class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a href="#"
-                      class="text-decoration-none font-weight-bold">Lake view,  Price</a></span></p>
-                <!-- <p class="font-weight-bold">Price</p> -->
-                <p>
-                  <span class="room-item-price">2,032&#2547; </span>
-                  <!-- <span class="font-weight-bold">Night</span>
-                  <span class="room-review-icon">
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="room-review-more"><i class="fas fa-arrow-right mr-2" id="fa-icon-hotel"></i>
-                    <a href="family-room.html" class="text-decoration-none font-weight-bold">See Detail</a></span> -->
-                </p>
-              </div>
-            </div>
+            <p><span>{{$item->length}}m<sup>2</sup></span><span class="ml-2"><a href="#"
+                    class="text-decoration-none font-weight-bold">Balcony</a></span></span>, <span> <a href="#"
+                        class="text-decoration-none font-weight-bold">Lake view , Price</a></span></p>
+                        
+                        <p>
+                            <span class="room-item-price">{{$item->price}} &#2547; </span>
+                        </p>
+                    </div>
+                </div>
+                
+                @endforeach
+            
+            
+            
+           
 
 
 
