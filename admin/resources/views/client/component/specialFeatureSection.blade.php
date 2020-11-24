@@ -10,11 +10,19 @@
             Specials</h1>
           <div class="col-md-12 mt-3">
             <div class="row wc-main-div  mx-auto">
+@php
+    
+    $arr =[ "fa-user-lock"," fa-business-time"," fa-car-alt","fa-user-lock"," fa-business-time"," fa-car-alt","fa-user-lock"," fa-business-time"," fa-car-alt"];
+
+@endphp
               @foreach ($HomeSFSectionDatas as $HomeSFSectionData)
+             
                     <div class="col-md-4 col-sm-12 col-xl-3 fs-div  mx-auto" data-aos="fade-up" data-aos-duration="1000"
                     data-aos-easing="ease-in-out">
                     <div class="fo-div">
-                      <i class="fas fa-user-lock font-icon text-center"></i>
+                      <i class="fas  {{
+                        $arr[$loop->index]
+                      }} font-icon text-center"></i>
                     </div>
                     <p class="wc-content">
                       <?php if ($HomeSFSectionData): ?>
