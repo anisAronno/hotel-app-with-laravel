@@ -20,7 +20,7 @@
         <div class="text-left room-item-content"
                 style="background-image: url('{{$item->images}}'); ">
             <div class=" room-item-content-detail">
-                <a href="/single-room-0" class="text-decoration-none">
+                <a href="{{ route('singleRoom', ['roomId'=>$item->id]) }}" class="text-decoration-none">
                     <h3>{{$item->title}}</h3>
                 </a>
                 <p><span><i class="fas fa-compress"></i>&nbsp; &nbsp; {{$item->length}}m<sup>2</sup></span><span class="ml-2"><a

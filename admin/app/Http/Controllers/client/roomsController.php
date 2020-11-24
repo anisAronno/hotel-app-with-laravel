@@ -17,16 +17,20 @@ class roomsController extends Controller
         $facilities= json_decode(FacilitiesModel::all());
         $rooms=RoomModel::all();
         $sql="SELECT 
-                    *
-                FROM
-                    room
-                        LEFT JOIN
-                    (SELECT 
-                        *
-                    FROM
-                        roomimages
-                    ) as roomImages ON roomimages.room_id = room.id group by room.title
-                ";
+        room.id,
+        room.title,
+        room.price,
+        room.length,
+        roomimages.images,
+        roomimages.room_id
+        FROM
+            room
+                LEFT JOIN
+            (SELECT 
+                *
+            FROM
+                roomimages
+            ) as roomImages ON roomimages.room_id = room.id group by room.title";
 
     $data=DB::select($sql);
 

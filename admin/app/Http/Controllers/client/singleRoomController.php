@@ -8,6 +8,7 @@ use App\SocialModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\RoomFacilityModel;
+use App\RoomImageModel;
 use App\RoomModel;
 
 class singleRoomController extends Controller
@@ -19,7 +20,8 @@ class singleRoomController extends Controller
         $rooms=RoomModel::all();
         $roomdetails=RoomModel::where('id',$roomId)->first();
         
-        $roomsImages=RoomModel::leftjoin('roomimages','roomimages.room_id','=','room.id')->get();
+        $roomsImages=RoomImageModel::leftjoin('room','roomimages.room_id','=','room.id')
+        ->where('room_id','=',$roomId)->get();
         $roomsfacilitybathroom=RoomFacilityModel::leftjoin('room','roomfacilities.room_id','=','room.id')
         ->where('room_id','=',$roomId)
         ->where('category_id','=',1)
