@@ -1,5 +1,8 @@
 @extends('client.layout.app')
-@section('broadcramb','Single Room')
+@section('broadcramb')
+{{$roomdetails->title}}
+@endsection
+
 @section('content')
        <!-- Hero Section Begin -->
        @include('client.component.hero')
