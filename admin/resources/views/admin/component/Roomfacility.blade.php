@@ -11,8 +11,8 @@
                         <thead>
                             <tr>
                                 <th class="th-sm">Sl.</th>
-                                <th class="th-sm">Room Title</th>
                                 <th class="th-sm">Facility item</th>
+                                <th class="th-sm">Room Title</th>
                                 <th class="th-sm">Facility Description</th>
                                 <th class="th-sm">Delete</th>
                             </tr>

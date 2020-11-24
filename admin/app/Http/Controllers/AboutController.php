@@ -24,7 +24,8 @@ class AboutController extends Controller
 
         $valuecheck = (AboutModel::orderBy('id', 'desc')->get());
         
-        $fileName=$req->file('photo')->getClientOriginalName();
+        $fileNames=$req->file('photo')->getClientOriginalExtension();
+        $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 

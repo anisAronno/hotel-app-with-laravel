@@ -51,7 +51,8 @@ class SliderController extends Controller
         $button = $data['0']->button;
         if ($req->file('photo')) {
             
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
@@ -89,7 +90,8 @@ class SliderController extends Controller
         $description = $data['0']->description;
         $button = $data['0']->button;
 
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 

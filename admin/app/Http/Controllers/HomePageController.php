@@ -83,7 +83,8 @@ class HomePageController extends Controller
 
         $valuecheck = (HomeAboutSecTionModel::orderBy('id', 'desc')->get());
         
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
@@ -106,7 +107,8 @@ class HomePageController extends Controller
 
         $valuecheck = (HomeAboutSecTionModel::orderBy('id', 'desc')->get());
         
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
@@ -128,7 +130,8 @@ class HomePageController extends Controller
 
         $valuecheck = (HomeAboutSecTionModel::orderBy('id', 'desc')->get());
         
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
@@ -152,7 +155,8 @@ class HomePageController extends Controller
 
         $valuecheck = (HomeAboutSecTionModel::orderBy('id', 'desc')->get());
         
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
        
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
@@ -354,7 +358,8 @@ class HomePageController extends Controller
         $description = $data['0']->description;
         $date = $data['0']->date;
        
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 
@@ -418,7 +423,8 @@ class HomePageController extends Controller
         $description = $data['0']->description;
         if ($req->file('photo')) {
             
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
 
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
 

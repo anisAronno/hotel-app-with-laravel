@@ -406,7 +406,7 @@
 
             axios.get('/getRoomImageData')
                 .then(function(response) {
-
+                            console.log(response.data);
                     if (response.status = 200) {
 
                         $('#mainDivimage').removeClass('d-none');
@@ -587,7 +587,7 @@
                     'Content-Type': 'multipart/form-data'
                 }
             }).then(function(response) {
-
+                console.log(response.data);
                 $('#RoomImageAddConfirmBtn').html("Save");
 
                 if (response.status = 200) {

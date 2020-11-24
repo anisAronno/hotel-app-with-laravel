@@ -141,7 +141,8 @@ class ResturantController extends Controller
     {
        
      
-        $fileName=$req->file('photo')->getClientOriginalName();
+       $fileNames=$req->file('photo')->getClientOriginalExtension();
+            $fileName=time().".".$fileNames;
         $photoPath =  $req->file('photo')->move(public_path('images/'), $fileName);
         $imageRealPath=asset('images')."/".$fileName;
       
