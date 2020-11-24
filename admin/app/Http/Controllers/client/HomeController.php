@@ -15,6 +15,7 @@ use App\SocialModel;
 
 use App\Http\Controllers\Controller;
 use App\NewslatterModel;
+use App\RoomModel;
 use App\TestimonialModel;
 
 class HomeController extends Controller
@@ -36,6 +37,7 @@ class HomeController extends Controller
         $homeEXPPageData= json_decode(homeExclusiveFeaturesModel::orderBy('id', 'asc')->limit(4)->get());
         $HomeTestimonialData= json_decode(TestimonialModel::orderBy('id', 'desc')->limit(3)->get());
         $facilities= json_decode(FacilitiesModel::all());
+        $rooms= json_decode(RoomModel::all());
         
         return View('client.index')
         ->with('othersData' ,$othersData)
@@ -46,7 +48,8 @@ class HomeController extends Controller
         ->with('HomeSFSectionDatas',$HomeSFSectionData)
         ->with('homeEXPPageData',$homeEXPPageData)
         ->with('HomeTestimonialDatas',$HomeTestimonialData)
-        ->with('facilities', $facilities);
+        ->with('facilities', $facilities)
+        ->with('rooms', $rooms);
     }
 
     function bookingSend(Request $request){
