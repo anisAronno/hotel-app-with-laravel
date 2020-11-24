@@ -9,28 +9,28 @@
             <div class="room-heading  py-4 col-md-8 col-sm-12">
                 <div class="room-config-item p-4">
                     <p><i class="fa fa-user mr-2" aria-hidden="true"></i>Adults</p>
-                    <p>2</p>
+                <p>{{$roomdetails->adult}}</p>
                 </div>
                 <div class="room-config-item p-4">
                     <p><i class="fas fa-child mr-2 "></i>Children</p>
-                    <p>0</p>
+                    <p>{{$roomdetails->children}}</p>
                 </div>
                 <div class="room-config-item p-4">
                     <p><i class="fas fa-compress mr-2 "></i>Area </p>
-                    <p>10m2</p>
+                    <p>{{$roomdetails->length}}</p>
                 </div>
                 <div class="room-config-item p-4">
                     <p><i class="fas fa-procedures mr-2 "></i>Beds</p>
-                    <p>1 Single bed</p>
+                    <p>{{$roomdetails->bed}}</p>
                 </div>
                 <div class="room-config-item p-4">
                     <p><i class="far fa-eye mr-2 "></i>View</p>
-                    <p>None</p>
+                    <p>{{$roomdetails->view}}</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-12 cart-section text-center">
                 <p>Price</p>
-                <p><span class="rate pb-5">&#2547; 1,524</span>/ night</p>
+                <p><span class="rate pb-5">&#2547; {{$roomdetails->price}}</span>/night</p>
 
             </div>
 
@@ -41,20 +41,16 @@
         <div class="room-view row py-5 ">
             <div class="col-md-8 pl-3 mt-3 mt-xl-5 ">
                 <div class="container review-slider">
-                    <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
-                        <img src="{{asset('client/images')}}/single-room.png" style="width:100%">
-                    </div>
 
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="{{asset('client/images')}}/single.png" style="width:100%">
-                    </div>
 
+                    @foreach ($roomsImages as $roomsImagesItem)
+                        
                     <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="{{asset('client/images')}}/single.png" style="width:100%">
+                    <img src="{{$roomsImagesItem->images}}" style="width:100%">
                     </div>
+                    
+                    @endforeach
+                  
 
 
 
@@ -66,19 +62,18 @@
 
 
                     <div class="row mt-3">
+                        @php
+                        $i=0;    
+                        @endphp
+                    @foreach ($roomsImages as $roomsImagesItem)
+                    @php
+                    $i++;    
+                    @endphp
                         <div class="column">
-                            <img class="demo cursor" src="{{asset('client/images')}}/single-room.png" style="width:100% ; height:100px;"
-                                onclick="currentSlide(1)" alt="The Woods">
+                            <img class="demo cursor" src="{{$roomsImagesItem->images}}" style="width:100% ; height:100px;"
+                                onclick="currentSlide({{$i}})" alt="The Woods">
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="{{asset('client/images')}}/single.png" style="width:100% ; height:100px;"
-                                onclick="currentSlide(2)" alt="Cinque Terre">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="{{asset('client/images')}}/single.png" style="width:100% ; height:100px;"
-                                onclick="currentSlide(3)" alt="Mountains and fjords">
-                        </div>
-
+                    @endforeach
 
                     </div>
                 </div>
@@ -123,51 +118,37 @@
                     <div class="tab-content">
                         <div id="bathroom" class="tab-pane show fade in active">
                             <div class="left-content float-left mt-3 mr-5">
-                                <p><i class="fas fa-check"></i> Free toiletries</p>
-                                <p><i class="fas fa-check"></i> Toilet</p>
-                                <p></p><i class="fas fa-check"></i> Bath or shower</p>
-                                <p><i class="fas fa-check"></i> Towels</p>
+
+                                @for ($i = 0; $i < count($roomsfacilityroom); $i+=2)
+                                    
+                                    <p><i class="fas fa-check"></i>&nbsp;{{$roomsfacilityroom[$i]->title}}</p>
+
+                                @endfor
+                                
                             </div>
                             <div class="right-content float-left mt-3">
-                                <p><i class="fas fa-check "></i> Slippers</p>
-                                <p><i class="fas fa-check"></i> Additional toilet</p>
-                                <p><i class="fas fa-check"></i> Toilet paper</p>
+                              
+                                @for ($i = 1; $i < count($roomsfacilityroom); $i+=2)
+                                    
+                                    <p><i class="fas fa-check"></i>&nbsp;{{$roomsfacilityroom[$i]->title}}</p>
+
+                                @endfor
                             </div>
                         </div>
                         <div id="room" class="tab-pane fade">
                             <div class="left-content float-left mt-3 mr-5">
-                                <p><i class="fas fa-check"></i> Hot tub</p>
-                                <p><i class="fas fa-check"></i> Dressing room</p>
-                                <p></p><i class="fas fa-check"></i> Wardrobe or closet</p>
-                                <p><i class="fas fa-check"></i> Air conditioning</p>
-                                <p><i class="fas fa-check"></i> Safety deposit box</p>
-                                <p><i class="fas fa-check"></i> Soundproofing</p>
-                                <p><i class="fas fa-check"></i> Private entrance</p>
-                                <p><i class="fas fa-check"></i> Ironing facilities</p>
-                                <p><i class="fas fa-check"></i> Iron</p>
-                                <p><i class="fas fa-check"></i> Interconnected room(s) available</p>
-                                <p><i class="fas fa-check"></i> Fan</p>
-                                <p><i class="fas fa-check"></i> Carpeted</p>
-                                <p><i class="fas fa-check"></i> Oven</p>
-                                <p><i class="fas fa-check"></i> Sofa</p>
-                                <p><i class="fas fa-check"></i> Fireplace</p>
+                                @for ($i = 0; $i < count($roomsfacilitybathroom); $i+=2)
+                                    
+                                <p><i class="fas fa-check"></i>&nbsp;{{$roomsfacilitybathroom[$i]->title}}</p>
+
+                                @endfor
                             </div>
                             <div class="right-content float-left mt-3">
-                                <p><i class="fas fa-check "></i> Desk</p>
-                                <p><i class="fas fa-check"></i> Seating Area</p>
-                                <p><i class="fas fa-check"></i> Dining area</p>
-                                <p><i class="fas fa-check"></i> TV</p>
-                                <p><i class="fas fa-check"></i> Telephone</p>
-                                <p><i class="fas fa-check"></i> Satellite channels</p>
-                                <p><i class="fas fa-check"></i> Flat-screen TV</p>
-                                <p><i class="fas fa-check"></i> Cable channels</p>
-                                <p><i class="fas fa-check"></i> Outdoor dining area</p>
-                                <p><i class="fas fa-check"></i> Clothes rack</p>
-                                <p><i class="fas fa-check"></i> Fold-up bed</p>
-                                <p><i class="fas fa-check"></i> Drying rack for clothing</p>
-                                <p><i class="fas fa-check"></i> Sofa bed</p>
-                                <p><i class="fas fa-check"></i> Wake up service/Alarm clock</p>
-                                <p><i class="fas fa-check"></i> Wake-up service</p>
+                                @for ($i = 1; $i < count($roomsfacilitybathroom); $i+=2)
+                                    
+                                <p><i class="fas fa-check"></i>&nbsp;{{$roomsfacilitybathroom[$i]->title}}</p>
+
+                                @endfor
                             </div>
                         </div>
                     </div>

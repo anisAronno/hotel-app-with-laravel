@@ -37,14 +37,11 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Room</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/rooms">All Room</a>
-                            @php
-                            $roomNames=['Deluxe Single Room','Deluxe Double Room','Deluxe Twin Room','Executive
-                            Suite','Family Room']
-                            @endphp
-                            @for ($i = 0; $i <= 4; $i++)
-                                <a class="dropdown-item"
-                                    href="{{ route('singleRoom', ['roomId' => $i]) }}">{{ $roomNames[$i] }}</a>
-                            @endfor
+                            
+                            @foreach ($rooms as $item)
+                                <a class="dropdown-item" href="{{ route('singleRoom', ['roomId' => $item->id]) }}">{{ $item->title }}</a>
+                            @endforeach
+                            
 
                         </div>
                     </li>
