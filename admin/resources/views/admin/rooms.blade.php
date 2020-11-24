@@ -4,6 +4,7 @@
 
     @include('admin.component.RoomSingle')
     @include('admin.component.RoomImage')
+    @include('admin.component.RoomFacility')
 
 
 
@@ -615,6 +616,170 @@
 
 
         }
+
+
+
+
+
+
+        // Room Facility Add
+
+
+        $('#addRoombtnFacility').click(function() {
+            $('#addFacilityModal').modal('show');
+        });
+
+
+
+        var i = 0;
+
+        function addInput() {
+            i++;
+            var html = "";
+            console.log(i);
+            html += '<tr id="rowid' + i + '">';
+            html += '<td>' + i + ' </td>';
+            html += '<td> <input type="text" class="form-control" id="titleInput[]"> </td>';
+            html += '<td> <button onclick="removeInput(' + i +
+                ');" class="btn  btn-warning btn-sm p-o"><i class="fas fa-minus-circle fa-2x"></i></button></td>';
+            html += '</tr>';
+
+            $('#append_tbody').append(html);
+        }
+
+
+        function removeInput(row_id) {
+            console.log(row_id);
+            $('#rowid' + row_id).remove();
+        }
+
+
+
+// get Room facilty Data
+
+
+        getRoomFacilityData();
+
+
+        function getRoomFacilityData() {
+
+
+            axios.get('/getRoomFacilityData')
+                .then(function(response) {
+
+                    if (response.status = 200) {
+
+                        $('#mainDivFacility').removeClass('d-none');
+                        $('#loadDivFacility').addClass('d-none');
+
+                        $('#FacilityDataTable').DataTable().destroy();
+                        $('#Facility_table').empty();
+                        var count = 1;
+                        var dataJSON = response.data;
+
+                        $.each(dataJSON, function(i, item) {
+                            $('<tr>').html(
+                                "<td>" + count++ + " </td>" +
+
+                                "<td class='text-break'>" + dataJSON[i].category_id + " </td>" +
+
+                                "<td class='text-break'>" + dataJSON[i].room_id + " </td>" +
+
+                                "<td class='text-break'>" + dataJSON[i].title + " </td>" +
+
+
+
+                                "<td class='text-center'><a class='facilityDeleteIcon' data-id=" + dataJSON[i]
+                                .id +
+                                " ><i class='fas fa-trash-alt'></i></a> </td>"
+                            ).appendTo('#Facility_table');
+                        });
+
+                        $(".facilityDeleteIcon").click(function() {
+
+                            var id = $(this).data('id');
+                            $('#FacilityDeleteId').html(id);
+                            $('#deleteModalFacility').modal('show');
+
+                        })
+
+                    } else {
+                        $('#wrongDivFacility').removeClass('d-none');
+                        $('#loadDivFacility').addClass('d-none');
+
+                    }
+                }).catch(function(error) {
+
+                    $('#wrongDivFacility').removeClass('d-none');
+                    $('#loadDivFacility').addClass('d-none');
+                });
+
+
+        }
+
+
+
+
+
+ //delete  Room Facility
+
+
+   //  image delete modal yes button
+
+   $('#confirmDeleteFacility').click(function() {
+            var id = $('#FacilityDeleteId').html();
+           
+            DeleteDataFacility(id);
+
+        })
+
+
+        function DeleteDataFacility(id) {
+            console.log(id);
+            $('#confirmDeleteFacility').html(
+                "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+            axios.post('/RoomFacilityDelete', {
+                    id: id
+                })
+                .then(function(response) {
+                    console.log(response.data);
+                    $('#confirmDeleteFacility').html("Yes");
+
+                    if (response.status == 200) {
+
+
+                        if (response.data == 1) {
+                            $('#deleteModalFacility').modal('hide');
+                            toastr.error('Delete Success.');
+                            getRoomFacilityData();
+                        } else {
+                            $('#deleteModalFacility').modal('hide');
+                            toastr.error('Delete Failed');
+                            getRoomFacilityData();
+                        }
+
+                    } else {
+                        $('#deleteModalFacility').modal('hide');
+                        toastr.error('Something Went Wrong');
+                    }
+
+                }).catch(function(error) {
+
+                    $('#deleteModalFacility').modal('hide');
+                    toastr.error('Something Went Wrong');
+
+                });
+
+        }
+
+
+
+
+
+
+
+
 
     </script>
 

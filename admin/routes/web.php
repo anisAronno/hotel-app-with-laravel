@@ -129,6 +129,10 @@ Route::get('/getRoomImageData', 'RoomController@getRoomImageData');
 Route::post('/RoomImageDelete', 'RoomController@RoomImageDelete');
 Route::post('/RoomImageAdd', 'RoomController@RoomImageAdd');
 
+Route::get('/getRoomFacilityData', 'RoomController@getRoomFacilityData');
+Route::post('/RoomFacilityDelete', 'RoomController@RoomFacilityDelete');
+
+
 
 
 

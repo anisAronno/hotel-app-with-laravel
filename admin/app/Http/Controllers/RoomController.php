@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\RoomFacilityModel;
 use App\RoomImageModel;
 use App\RoomModel;
 use Illuminate\Http\Request;
@@ -166,6 +167,48 @@ class RoomController extends Controller
         }
     
     
+
+
+        public function getRoomFacilityData()
+        {
+
+            $results = json_decode(RoomFacilityModel::orderBy('id', 'desc')->get());
+           
+            return $results;
+           
+        }
+    
+
+
+        
+        function RoomFacilityDelete(Request $req)
+        {
+            $id = $req->input('id');
+            $result = RoomFacilityModel::where('id', '=', $id)->delete();
+            if ($result == true) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
