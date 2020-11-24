@@ -16,6 +16,7 @@ class roomsController extends Controller
         $socialData= json_decode(SocialModel::orderBy('id', 'desc')->get()->first());
         $facilities= json_decode(FacilitiesModel::all());
         $rooms=RoomModel::all();
+        
         $sql="SELECT 
         room.id,
         room.title,

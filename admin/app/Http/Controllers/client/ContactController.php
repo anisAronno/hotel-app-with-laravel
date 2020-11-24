@@ -8,15 +8,19 @@ use App\OthersModel;
 use App\SocialModel;
 
 use App\Http\Controllers\Controller;
+use App\RoomModel;
+
 class ContactController extends Controller
 {
     public function contactIndex(){
         $othersData= json_decode(OthersModel::orderBy('id', 'desc')->get()->first());
         $socialData= json_decode(SocialModel::orderBy('id', 'desc')->get()->first());
         $facilities= json_decode(FacilitiesModel::all());
+        $rooms=RoomModel::all();
         return view('client.Contact',[
             'othersData'=>$othersData,
             'socialData'=>$socialData,
+            'rooms'=>$rooms,
             'facilities'=> $facilities
         ]);
     }

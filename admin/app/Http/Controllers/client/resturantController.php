@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\ResturantImageModel;
 use App\ResturantMenuModel;
 use App\ResturantModel;
+use App\RoomModel;
 use App\TestimonialModel;
 
 class resturantController extends Controller
@@ -22,6 +23,7 @@ class resturantController extends Controller
         $ResturantMenu= json_decode(ResturantMenuModel::orderBy('id', 'desc')->get());
         $ResturantAbout= json_decode(ResturantModel::orderBy('id', 'desc')->get()->first());
         $facilities= json_decode(FacilitiesModel::all());
+        $rooms=RoomModel::all();
         return view('client.resturant',[
             'othersData'=>$othersData,
             'socialData'=>$socialData,
@@ -29,6 +31,7 @@ class resturantController extends Controller
             'ResturantImages'=>$ResturantImage,
             'ResturantMenus'=>$ResturantMenu,
             'ResturantAbout'=>$ResturantAbout,
+            'rooms'=>$rooms,
             'facilities'=> $facilities
         ]);
     }
