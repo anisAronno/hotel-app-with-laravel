@@ -69,8 +69,8 @@
                         <div class="container">
                             <div class="row">
                                 <input id="RoomTitle" type="text" class="form-control mb-3" placeholder="Room Title">
-                                <input name="" id="RoomPrice" class="form-control mb-3" placeholder="Room Price">
-                                <input id="RoomLenght" type="text" class="form-control mb-3" placeholder="Room Lenght">
+                                <input name="" id="RoomPrice" class="form-control mb-3" placeholder="Room Price" type="number">
+                                <input id="RoomLenght" type="number" class="form-control mb-3" placeholder="Room Lenght">
                                 <input id="RoomView" type="text" class="form-control mb-3" placeholder="Room View">
 
                                 <input id="RoomAdults" type="text" class="form-control mb-3" placeholder="Room Adults">
@@ -134,9 +134,9 @@
                                     <input id="RoomTitleIdUpdate" type="text" class="form-control mb-3"
                                         placeholder="Room Title">
                                     <input name="" id="RoomPriceIdUpdate" class="form-control mb-3"
-                                        placeholder="Room Price">
-                                    <input id="RoomLenghtIdUpdate" type="text" class="form-control mb-3"
-                                        placeholder="Room Lenght">
+                                        placeholder="Room Price" type="number">
+                                    <input id="RoomLenghtIdUpdate"  class="form-control mb-3"
+                                        placeholder="Room Lenght" type="number">
                                     <input id="RoomViewIdUpdate" type="text" class="form-control mb-3"
                                         placeholder="Room View">
 
