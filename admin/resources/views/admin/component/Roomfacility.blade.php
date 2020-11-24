@@ -58,11 +58,13 @@
                     <div class="modal-body  text-center">
                         <div class="container">
                             <div class="row">
-                                <select name="" id="RoomPageName" class="form-control mb-5 mdb-select4">
+                                <select name="" id="FacilitRoomPageName" class="form-control mb-5 mdb-select5">
 
                                 </select>
-                                <select name="" id="RoomPageName" class="form-control mb-5 mdb-select4">
-
+                                <select name="" id="facilityCategoryItem" class="form-control mb-5 mdb-select5">
+                                        <option selected disabled>Select Category</option>
+                                        <option value="1">Room Facility</option>
+                                        <option value="1">Bathroom Facility</option>
                                 </select>
                                 <table class="table table-border">
                                     <thead class="thead-dark">

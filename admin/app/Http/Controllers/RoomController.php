@@ -200,7 +200,36 @@ class RoomController extends Controller
 
 
 
-
+        function RoomFacilityAdd(Request $req)
+        {
+           
+            $FacilitRoomPageName = $req->FacilitRoomPageName;
+            $facilityCategoryItem = $req->facilityCategoryItem;
+            $titleInput = $req->titleInput;
+            
+                try {
+                    for ($i=0; $i <count($titleInput) ; $i++) { 
+                        $result = RoomFacilityModel::insert([
+                        
+                            'room_id' => $FacilitRoomPageName,
+                            'category_id' => $facilityCategoryItem,
+                            'title' => $titleInput[$i]
+                            
+                        ]);
+                    }
+                    
+                } catch (\Throwable $th) {
+                  return response()->json(array('error'=>$th));
+                }
+    
+           
+            if ($result == true) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    
 
 
 

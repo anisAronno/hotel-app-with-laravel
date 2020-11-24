@@ -131,6 +131,7 @@ Route::post('/RoomImageAdd', 'RoomController@RoomImageAdd');
 
 Route::get('/getRoomFacilityData', 'RoomController@getRoomFacilityData');
 Route::post('/RoomFacilityDelete', 'RoomController@RoomFacilityDelete');
+Route::post('/RoomFacilityAdd', 'RoomController@RoomFacilityAdd');
 
 
 

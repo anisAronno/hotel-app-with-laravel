@@ -539,7 +539,7 @@
             .then(function(response) {
                 var dataJSON = response.data;
                 $('#RoompageName').empty();
-                $('#RoompageName').append(`<option disabled selected>Select Product Category</option>`);
+                $('#RoompageName').append(`<option disabled selected>Select Room</option>`);
                 $.each(dataJSON, function(i, item) {
 
                     $('#RoompageName').append(
@@ -622,14 +622,6 @@
 
 
 
-        // Room Facility Add
-
-
-        $('#addRoombtnFacility').click(function() {
-            $('#addFacilityModal').modal('show');
-        });
-
-
 
         var i = 0;
 
@@ -639,7 +631,7 @@
             console.log(i);
             html += '<tr id="rowid' + i + '">';
             html += '<td>' + i + ' </td>';
-            html += '<td> <input type="text" class="form-control" id="titleInput[]"> </td>';
+            html += '<td> <input name="titleInput[]" type="text" class="form-control" id="titleInput[]"> </td>';
             html += '<td> <button onclick="removeInput(' + i +
                 ');" class="btn  btn-warning btn-sm p-o"><i class="fas fa-minus-circle fa-2x"></i></button></td>';
             html += '</tr>';
@@ -655,7 +647,7 @@
 
 
 
-// get Room facilty Data
+        // get Room facilty Data
 
 
         getRoomFacilityData();
@@ -689,7 +681,8 @@
 
 
 
-                                "<td class='text-center'><a class='facilityDeleteIcon' data-id=" + dataJSON[i]
+                                "<td class='text-center'><a class='facilityDeleteIcon' data-id=" + dataJSON[
+                                    i]
                                 .id +
                                 " ><i class='fas fa-trash-alt'></i></a> </td>"
                             ).appendTo('#Facility_table');
@@ -721,14 +714,14 @@
 
 
 
- //delete  Room Facility
+        //delete  Room Facility
 
 
-   //  image delete modal yes button
+        //  image delete modal yes button
 
-   $('#confirmDeleteFacility').click(function() {
+        $('#confirmDeleteFacility').click(function() {
             var id = $('#FacilityDeleteId').html();
-           
+
             DeleteDataFacility(id);
 
         })
@@ -780,6 +773,108 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+        // Material Select Initialization
+        $(document).ready(function() {
+            $('.mdb-select5').material_select();
+        });
+
+
+
+
+        // Room Facility Add
+
+
+        $('#addRoombtnFacility').click(function() {
+            $('#addFacilityModal').modal('show');
+        });
+
+
+        //ResturantMenu Add modal save button
+
+        $('#RoomFacilityAddConfirmBtn').click(function() {
+            var FacilitRoomPageName = $('#FacilitRoomPageName').val();
+            var facilityCategoryItem = $('#facilityCategoryItem').val();
+           
+            var titleInput = $("input[name='titleInput[]']").map(function(){return $(this).val();}).get();
+            console.log(titleInput);
+
+            FacilityItemAdd(FacilitRoomPageName, facilityCategoryItem, titleInput);
+
+        })
+
+
+        axios.get('/getRoomData')
+            .then(function(response) {
+                var dataJSON = response.data;
+                $('#FacilitRoomPageName').empty();
+                $('#FacilitRoomPageName').append(`<option disabled selected>Select Room</option>`);
+                $.each(dataJSON, function(i, item) {
+
+                    $('#FacilitRoomPageName').append(
+                        `<option value="${dataJSON[i].id}"> ${dataJSON[i].title} </option>`);
+
+                });
+
+            }).catch(function(error) {
+
+                alert("There are no Facilit Room Page Name")
+
+            });
+
+        function FacilityItemAdd(FacilitRoomPageName, facilityCategoryItem, titleInput) {
+
+            $('#RoomFacilityAddConfirmBtn').html(
+                "<div class='spinner-border spinner-border-sm text-primary' role='status'></div>"); //animation
+
+
+
+
+            axios.post('/RoomFacilityAdd', {
+                FacilitRoomPageName: FacilitRoomPageName,
+                facilityCategoryItem: facilityCategoryItem,
+                titleInput: titleInput,
+
+            }).then(function(response) {
+                console.log(response.data);
+
+                $('#RoomFacilityAddConfirmBtn').html("Save");
+
+                if (response.status = 200) {
+                    if (response.data == 1) {
+                        $('#addFacilityModal').modal('hide');
+                        toastr.success('Add New Success .');
+                        getRoomFacilityData();
+                    } else {
+                        $('#addFacilityModal').modal('hide');
+                        toastr.error('Add New Failed');
+                        getRoomFacilityData();
+                    }
+                } else {
+                    $('#addFacilityModal').modal('hide');
+                    toastr.error('Something Went Wrong');
+                }
+
+
+            }).catch(function(error) {
+
+                $('#addFacilityModal').modal('hide');
+                toastr.error('Something Went Wrong');
+
+            });
+
+
+
+        }
 
     </script>
 
