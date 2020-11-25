@@ -696,7 +696,7 @@
 
             axios.get('/getEXPdata')
                 .then(function(response) {
-
+                        console.log(response.data);
                     if (response.status = 200) {
 
                         $('#mainDivEXP').removeClass('d-none');

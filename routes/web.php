@@ -56,11 +56,11 @@ Route::post('/HomeFSEdit', 'HomePageController@HomeFSEdit');
 Route::post('/HomeFSUpdate', 'HomePageController@HomeFSUpdate');
 
 
-Route::get('/getResturantMenudata', 'HomePageController@getHomeExclusiveSpecialsData');
-Route::post('/homeResturantMenuAdd', 'HomePageController@homeResturantMenuAdd');
+Route::get('/getEXPdata', 'HomePageController@getHomeExclusiveSpecialsData');
+Route::post('/homeEXPAdd', 'HomePageController@homeEXPAdd');
 Route::post('/HomeEXFDelete', 'HomePageController@HomeEXFDelete');
-Route::post('/HomeResturantMenuEdit', 'HomePageController@HomeResturantMenuEdit');
-Route::post('/HomeResturantMenuUpdate', 'HomePageController@HomeResturantMenuUpdate');
+Route::post('/HomeEXPEdit', 'HomePageController@HomeEXPEdit');
+Route::post('/HomeEXPUpdate', 'HomePageController@HomeEXPUpdate');
 
 Route::get('/getTestimonialData', 'HomePageController@getHomeTestimonialData');
 Route::post('/TestimonialAdd', 'HomePageController@TestimonialAdd');

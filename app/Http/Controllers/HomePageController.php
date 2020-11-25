@@ -259,6 +259,7 @@ class HomePageController extends Controller
  public function getHomeExclusiveSpecialsData()
  {
      $results = json_decode(homeExclusiveFeaturesModel::orderBy('id', 'desc')->get());
+    
      return $results;
  }
 
