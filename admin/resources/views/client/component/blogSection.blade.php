@@ -2,39 +2,23 @@
     <p>OUR BLOG</p>
     <h1>Articles & News</h1>
     <div class="blog-div d-flex flex-wrap">
-      <div class="blog-item" style="background-image: url({{asset('client/images')}}/Terrace\ View\ Restaurant2.jpg);">
-        <div class="content ">
-          <h3>Host a Family Party</h3>
-          <p><i class="fas fa-calendar-alt"></i>&nbsp; On December 09, 2020</p>
-          <p>When you host a party or family reunion, the special celebrations let you strengthen bonds with…When you
-            host
-          </p>
-          <hr>
-          <a href="#"><i class="fas fa-arrow-right"></i>&nbsp;&nbsp;READ MORE</a>
+      @foreach ($BlogDatas as $BlogData)
+        <div class="blog-item img-fluid" style="background-image: url({{$BlogData->image}});">
+          <div class="content ">
+            <h3> @if ($BlogData)
+              {!! nl2br(e($BlogData->title)) !!}
+              @endif</h3>
+            <p><i class="fas fa-calendar-alt"></i>&nbsp;  {{date('j F, Y', strtotime($BlogData->created_at))}}</p>
+            <p>@if ($BlogData)
+              {!! nl2br(e (Str::limit($BlogData->description, 130, '...'))) !!}
+              @endif
+            </p>
+            <hr>
+            <a href="{{ route('Blog', ['blogId'=>$BlogData->id]) }}"><i class="fas fa-arrow-right"></i>&nbsp;&nbsp;READ MORE</a>
+          </div>
         </div>
-      </div>
-      <div class="blog-item" style="background-image: url({{asset('client/images')}}/resturant.jpg);">
-        <div class="content ">
-          <h3>Host a BBQ Party</h3>
-          <p><i class="fas fa-calendar-alt"></i>&nbsp; On March 19, 2020</p>
-          <p>When you host a party or family reunion, the special celebrations let you strengthen bonds with…When you
-            host
-          </p>
-          <hr>
-          <a href="#"><i class="fas fa-arrow-right"></i>&nbsp;&nbsp;READ MORE</a>
-        </div>
-      </div>
-      <div class="blog-item" style="background-image: url({{asset('client/images')}}/Terrace\ View\ Restaurant8.jpg);">
-        <div class="content ">
-          <h3>Host a Surprise Party</h3>
-          <p><i class="fas fa-calendar-alt"></i>&nbsp; On April 25, 2020</p>
-          <p>When you host a party or family reunion, the special celebrations let you strengthen bonds with…When you
-            host
-          </p>
-          <hr>
-          <a href="#"><i class="fas fa-arrow-right"></i>&nbsp;&nbsp;READ MORE</a>
-        </div>
-      </div>
+      @endforeach
+      
 
     </div>
   </section>

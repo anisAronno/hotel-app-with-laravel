@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\client;
 
+use App\BlogModel;
 use App\FacilitiesModel;
 use App\OthersModel;
 use App\SocialModel;
@@ -15,12 +16,15 @@ class blogController extends Controller
         $othersData= json_decode(OthersModel::orderBy('id', 'desc')->get()->first());
         $socialData= json_decode(SocialModel::orderBy('id', 'desc')->get()->first());
         $facilities= json_decode(FacilitiesModel::all());
+        $BlogData= BlogModel::paginate(5);
+        
         $rooms=RoomModel::all();
         return view('client.blog',[
             'othersData'=>$othersData,
             'socialData'=>$socialData,
             'rooms'=>$rooms,
-            'facilities'=> $facilities
+            'facilities'=> $facilities,
+            'BlogDatas'=>  $BlogData
         ]);
     }
 }

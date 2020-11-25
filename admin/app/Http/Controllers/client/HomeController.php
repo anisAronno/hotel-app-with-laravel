@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\client;
+
+use App\BlogModel;
 use Illuminate\Http\Request;
 use App\bookingModel;
 use App\ExtraServicesModel;
@@ -38,6 +40,7 @@ class HomeController extends Controller
         $HomeTestimonialData= json_decode(TestimonialModel::orderBy('id', 'desc')->limit(3)->get());
         $facilities= json_decode(FacilitiesModel::all());
         $rooms= json_decode(RoomModel::all());
+        $BlogData= json_decode(BlogModel::limit(3)->get());
         
         return View('client.index')
         ->with('othersData' ,$othersData)
@@ -49,7 +52,8 @@ class HomeController extends Controller
         ->with('homeEXPPageData',$homeEXPPageData)
         ->with('HomeTestimonialDatas',$HomeTestimonialData)
         ->with('facilities', $facilities)
-        ->with('rooms', $rooms);
+        ->with('rooms', $rooms)
+        ->with('BlogDatas', $BlogData);
     }
 
     function bookingSend(Request $request){

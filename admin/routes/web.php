@@ -139,6 +139,35 @@ Route::post('/RoomFacilityAdd', 'RoomController@RoomFacilityAdd');
 
 
 
+//admin panel Room management 
+
+
+Route::get('/adminBlog', 'BlogController@BlogIndex');
+Route::get('/getBlogData', 'BlogController@getBlogData');
+Route::post('/BlogDelete', 'BlogController@BlogDelete');
+Route::post('/BlogAdd', 'BlogController@BlogAdd');
+Route::post('/getBlogEdit', 'BlogController@BlogEdit');
+Route::post('/BlogUpdate', 'BlogController@BlogUpdate');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //admin panel Home Page Others management with social URL
@@ -265,6 +294,9 @@ Route::get('/blog', 'client\blogController@blogIndex');
 Route::get('/single-blog', 'client\singleBlogeController@singleBlogIndex');
 Route::get('/single-facility-{facilityId}', 'client\singleFacilityController@singleFacilityIndex')->name('singleFacility');
 Route::get('/single-room-{roomId}', 'client\singleRoomController@singleRoomIndex')->name('singleRoom');
+
+
+Route::get('/single-blog-{blogId}', 'client\singleBlogeController@singleBlogIndex')->name('Blog');
 
 
 

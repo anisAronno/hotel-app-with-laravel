@@ -31,6 +31,7 @@
                         <li> <a href="{{ url('/adminAbout') }}"><span> <i class="fas fa-address-card"></i></i> </span><span class="hide-menu">About</span></a></li>
                         <li> <a href="{{ url('/resturantPage') }}"><span> <i class="fas fa-utensils"></i> </span><span class="hide-menu">Resturant</span></a></li>
                         <li> <a href="{{ url('/Facilities') }}"><span> <i class="fas fa-chart-line"></i> </span><span class="hide-menu">Facilities</span></a></li>
+                        <li> <a href="{{ url('/adminBlog') }}"><span> <i class="fab fa-blogger"></i></span><span class="hide-menu">Blog</span></a></li>
                         <li> <a href="{{ url('/others') }}"><span> <i class="fas fa-cog"></i> </span><span class="hide-menu">Generale Settings</span></a></li>
                         <li> <a href="{{ url('/social') }}"><span> <i class="fas fa-thumbs-up"></i> </span><span class="hide-menu">Social Settings</span></a></li>
                       
