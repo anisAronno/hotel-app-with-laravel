@@ -56,7 +56,9 @@ $('#contactSubmitBtn').click(function(event) {
                 massage: massage,
             })
                 .then(function (response) {
+
                     console.log(response.data);
+                    
                     $('#name').val('');
                     $('#email').val('');
                     $('#PhonNumber').val('');

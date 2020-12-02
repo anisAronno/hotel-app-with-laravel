@@ -16,9 +16,10 @@ class ContactTable extends Migration
         Schema::create('contact', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('mobile');
+            $table->string('PhonNumber');
             $table->string('email');
-            $table->string('msg');
+            $table->string('YourSubject');
+            $table->string('massage');
 
         });
     }
